@@ -5,10 +5,18 @@
     font-family: Arial, sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     color: #333;
     background-color: #f4f4f4;
     line-height: 1.6;
+}
+
+li {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 header {
@@ -121,6 +129,13 @@ header p {
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer; /* Indicate it's interactive */
+}
+
+.step:hover {
+    transform: scale(1.05); /* Zooms in the box slightly */
+    box-shadow: 0 8px 12px rgb(104, 35, 35); /* Adds a larger shadow for a lifted effect */
 }
 
 .testimonials {
@@ -572,10 +587,10 @@ footer .widget ul {
   .service-section.service-content {
     position: absolute;
     top: 0;
-    height: 100%;
+    height: 97%;
     margin-left: 20px;
     left: 100%;
-    width: 100%;
+    width: 95%;
     opacity: 0;
     transition: all 0.5s ease-in-out;
   }
@@ -598,7 +613,7 @@ footer .widget ul {
 } */
 
 a.service{
-    color: #212529;
+    color: #dd2121;
     text-decoration: none;
     font-weight: 550 !important;
 }
