@@ -4,6 +4,62 @@
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
+/* Mobile styles */
+@media (max-width: 768px) {
+    /* Adjust general container widths */
+    .container {
+        width: 100%;
+        padding: 0 15px;
+        margin: auto;
+    }
+
+    /* Make header content stack vertically */
+    header .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    .cta-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Adjust section layout for mobile */
+    .services, .how-it-works, .testimonials {
+        padding: 20px 0;
+    }
+
+    /* Stack the services list vertically */
+    .service-section.services-list {
+        width: 100%;
+    }
+
+    /* Make each step and testimonial take full width */
+    .steps, .testimonials {
+        flex-direction: column;
+    }
+
+    .step, .testimonial {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    /* Footer columns stack vertically */
+    footer .row {
+        flex-direction: column;
+    }
+
+    .footer-col-3, .footer-col-4 {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
 
 html {
     scroll-behavior: smooth;
@@ -71,6 +127,29 @@ header p {
 .cta-button:hover {
     background-color: #e55d00;
 }
+
+/* Add these styles to your existing CSS */
+
+/* Button for form redirection */
+.form-button {
+    background-color: #ff6600;
+    color: white;
+    padding: 15px 30px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 20px auto;
+    transition: background-color 0.3s ease;
+}
+
+.form-button:hover {
+    background-color: #e55d00;
+}
+
 
 .container {
     width: 80%;
@@ -632,4 +711,62 @@ a.service{
 
 .text-left{
     text-align: left;
+}
+
+.gem-contacts-item {
+    margin: 5px 0;
+}
+
+.gem-contacts-item i {
+    margin-right: 10px;
+    color: #00bcd4; /* Icon color */
+}
+
+.gem-contacts-email a, .gem-contacts-phone a {
+    color: #99a9b5; /* Link color */
+    text-decoration: none;
+}
+
+.gem-contacts-email a:hover, .gem-contacts-phone a:hover {
+    color: #fff; /* Hover effect */
+}
+/* Add these styles to your existing CSS */
+
+/* Animation for sliding in from the right */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animation for sliding in from the left */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Initially hide the testimonials */
+.testimonial {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+/* Classes to apply the animations */
+.animate-slide-in-right {
+    animation: slideInRight 1s forwards;
+}
+
+.animate-slide-in-left {
+    animation: slideInLeft 1s forwards;
 }

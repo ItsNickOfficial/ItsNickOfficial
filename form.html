@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Submit Your Thesis Request</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your main CSS file -->
+    <style>
+        /* Body background with image */
+        body {
+            background: url('cambridge.jpg') no-repeat center center fixed; /* Add your image file here */
+            background-size: cover; /* Cover the entire background */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container for the form */
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* A bit more shadow to distinguish from the background */
+            position: relative;
+        }
+
+        /* Form elements styling */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        input, textarea, select {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #F9F2EC; /* Light beige background for inputs */
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: #8C5C4E; /* Brown border on focus */
+            outline: none;
+        }
+
+        /* Submit button styling */
+        button {
+            background-color: #8C5C4E; /* Brown color */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #734C3D; /* Darker brown on hover */
+        }
+
+        /* Heading styling */
+        h1 {
+            text-align: center;
+            color: #8C5C4E; /* Match the button color */
+            margin-bottom: 30px;
+        }
+
+        /* Adjust form on smaller screens */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Υποβολή αίτησης</h1>
+        <form action="/submit-form" method="POST"> <!-- Change action based on your backend -->
+            <!-- Full Name -->
+            <label for="name">Ονοματεπώνυμο:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <!-- Email -->
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <!-- Service Selection -->
+            <label for="service">Επιλογή υπηρεσίας:</label>
+            <select id="service" name="service" required>
+                <option value="">--Διάλεξε την υπηρεσία που επιθυμείς--</option>
+                <option value="thesis">Πτυχιακή εργασία</option>
+                <option value="diploma">Διπλωματική εργασία</option>
+                <option value="semester">Εργασία εξαμήνου</option>
+                <option value="translation">Μετάφραση</option>
+                <option value="spss-analysis">Ανάλυση SPSS</option>
+                <option value="typing">Δακτυλογράφηση</option>
+            </select>
+
+            <!-- Thesis Title -->
+            <label for="thesis-title">Θέμα:</label>
+            <input type="text" id="thesis-title" name="thesis-title" required>
+            
+            <!-- Thesis Description -->
+            <label for="thesis-description">Περιγραφή:</label>
+            <textarea id="thesis-description" name="thesis-description" rows="5" required></textarea>
+            
+            <!-- Number of Words -->
+            <label for="word-count">Αριθμός λέξεων:</label>
+            <input type="number" id="word-count" name="word-count" min="0" step="500" required>
+            
+
+            <!-- Deadline -->
+            <label for="deadline">Προθεσμίας:</label>
+            <input type="date" id="deadline" name="deadline" required>
+
+            <!-- Submit Button -->
+            <button type="submit">Υποβολη</button>
+        </form>
+    </div>
+</body>
+
+</html>
