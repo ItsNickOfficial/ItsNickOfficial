@@ -51,5 +51,61 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", checkTestimonials);
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  // Get the modal element
+  var modal = document.getElementById("supportModal");
+
+  // Get the button/link that opens the modal
+  var supportLink = document.getElementById("support-link");
+
+  // Get the <span> element that closes the modal
+  var closeButton = document.querySelector(".close-button");
+
+  // Get the main page content to blur
+  var pageContent = document.querySelector("body > :not(#supportModal)");
+
+  // When the user clicks on the "Support" link, open the modal
+  supportLink.onclick = function (event) {
+      event.preventDefault(); // Prevent default anchor behavior
+      modal.classList.add("show");
+      pageContent.classList.add("blur");
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  closeButton.onclick = function () {
+      modal.classList.remove("show");
+      pageContent.classList.remove("blur");
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function (event) {
+      if (event.target == modal) {
+          modal.classList.remove("show");
+          pageContent.classList.remove("blur");
+      }
+  }
+});
+
+// FAQ
+document.addEventListener('DOMContentLoaded', function () {
+  // Select all the FAQ items, not just the question
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  // Add a click event listener to each faq-item
+  faqItems.forEach(item => {
+      item.addEventListener('click', function () {
+          // Toggle the active class to show or hide the answer
+          this.classList.toggle('active');
+          
+          // Close other open FAQs (Accordion behavior)
+          faqItems.forEach(otherItem => {
+              if (otherItem !== this) {
+                  otherItem.classList.remove('active');
+              }
+          });
+      });
+  });
+});
+
 
   // https://penacademic.net/

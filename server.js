@@ -6,12 +6,14 @@ const app = express();
 // Middleware for parsing form data
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Serve static files (your form and CSS)
-app.use(express.static('public'));
+// Serve static files if you have any (like CSS or images)
+// If you have a folder named 'public' with styles or images, you can still use this line.
+// Otherwise, you can remove it if unnecessary:
+// app.use(express.static('public'));
 
 // Handle GET request for the homepage
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html');
+    res.sendFile(__dirname + '/form.html');
 });
 
 // Handle form submission
