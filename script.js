@@ -16,6 +16,7 @@ document.querySelectorAll('.service-section.services-list li').forEach((item) =>
       }, 50);
     });
   });
+
 // Add this script before the closing </body> tag in your HTML file
 document.addEventListener("DOMContentLoaded", () => {
     const testimonials = document.querySelectorAll(".testimonial");

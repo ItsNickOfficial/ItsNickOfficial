@@ -103,6 +103,10 @@
             <!-- Email -->
             <label for="email">Email επικοινωνίας:</label>
             <input type="email" id="email" name="email" required>
+
+            <!-- Contact Phone -->
+            <label for="phone">Τηλέφωνο επικοινωνίας:</label>
+            <input type="tel" id="phone" name="phone">            
             
             <!-- Service Selection -->
             <label for="service">Επιλογή υπηρεσίας:</label>
@@ -137,6 +141,13 @@
             <button type="submit">Υποβολη</button>
         </form>
     </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init('service_znsz5ef'); // Replace 'YOUR_USER_ID' with your actual EmailJS user ID
+        })();
+    </script>
+    <script src="emailService.js"></script>    
 </body>
 
 </html>
