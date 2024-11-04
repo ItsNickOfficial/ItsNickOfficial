@@ -18,11 +18,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            padding-top: 0px; /* Adjust to the height of the navigation bar */
         }
 
         /* Container for the form */
-        .container {
+        .container1 {
             background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
             padding: 40px;
             max-width: 600px;
@@ -93,7 +93,17 @@
 </head>
 
 <body>
-    <div class="container">
+    <nav class="top-nav">
+        <div class="container">
+            <ul>
+                <li><a href="index.html#services">Υπηρεσίες</a></li>
+                <li><a href="form.html">Online φόρμα</a></li>
+                <li><a href="index.html#footer-contact">Επικοινωνία</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container1" style="margin-top: 80px;"> <!-- Adjust margin-top to prevent overlap -->
         <h1>Υποβολή αίτησης</h1>
         <form action="/submit-form" method="POST"> <!-- Change action based on your backend -->
             <!-- Full Name -->
@@ -102,16 +112,45 @@
             
             <!-- Email -->
             <label for="email">Email επικοινωνίας:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" required 
+                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
+                oninvalid="this.setCustomValidity('Παρακαλώ εισάγετε μία έγκυρη διεύθυνση email (π.χ. user@example.com)')"
+                oninput="this.setCustomValidity('')" 
+                title="Εισάγετε μία έγκυρη διεύθυνση email (π.χ. user@example.com)">
+
 
             <!-- Contact Phone -->
             <label for="phone">Τηλέφωνο επικοινωνίας:</label>
-            <input type="tel" id="phone" name="phone">            
-            
+            <div style="display: flex; align-items: center;">
+                <select id="country-code" name="country-code" required>
+                    <option value="+30">🇬🇷 +30</option> <!-- Greece flag -->
+                    <option value="+357">🇨🇾 +357</option> <!-- Cyprus flag -->
+                </select>
+                <input type="tel" id="phone" name="phone" required maxlength="10"
+                    pattern="\d{8,10}"
+                    oninput="adjustMaxLength(this)"
+                    title="Please enter a valid phone number">
+            </div>
+
+            <script>
+                function adjustMaxLength(input) {
+                    const countryCode = document.getElementById('country-code').value;
+                    if (countryCode === '+30') {
+                        input.setAttribute('maxlength', '10'); // Max 10 digits for Greece
+                        input.setAttribute('pattern', '\\d{10}'); // Enforce exactly 10 digits for Greece
+                        input.setAttribute('title', 'Please enter a 10-digit phone number for Greece');
+                    } else if (countryCode === '+357') {
+                        input.setAttribute('maxlength', '8'); // Max 8 digits for Cyprus
+                        input.setAttribute('pattern', '\\d{8}'); // Enforce exactly 8 digits for Cyprus
+                        input.setAttribute('title', 'Please enter an 8-digit phone number for Cyprus');
+                    }
+                }
+            </script>
+
             <!-- Service Selection -->
             <label for="service">Επιλογή υπηρεσίας:</label>
             <select id="service" name="service" required>
-                <option value="">--Διάλεξε την υπηρεσία που επιθυμείς--</option>
+                <option value="">**Διάλεξε την υπηρεσία που επιθυμείς**</option>
                 <option value="thesis">Πτυχιακή εργασία</option>
                 <option value="diploma">Διπλωματική εργασία</option>
                 <option value="semester">Εργασία εξαμήνου</option>

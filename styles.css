@@ -30,14 +30,49 @@
     }
 
     /* Adjust section layout for mobile */
-    .services, .how-it-works, .testimonials {
-        padding: 20px 0;
+    .service-section {
+        width: 100%; /* Ensure full width */
+        padding: 15px; /* Adjust padding for more space */
     }
 
-    /* Stack the services list vertically */
     .service-section.services-list {
-        width: 100%;
+        max-height: 650px; /* Set this to a value that works for your layout */
+        overflow-y: auto; /* Enable vertical scrolling */
+        padding: 10px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
+
+    .service-section.services-list li {
+        font-size: 0.95rem; /* Slightly smaller font size for better fit */
+        line-height: 1.4; /* Improve readability */
+        padding: 8px; /* Reduce padding for smaller screens */
+        white-space: normal; /* Allow text to wrap */
+        overflow-wrap: break-word; /* Break long words */
+    }
+
+
+    .service-section.service-content {
+        width: 100%; /* Ensure content fits within container */
+        padding: 10px;
+        overflow: auto; /* Add scroll if content overflows */
+        word-wrap: break-word; /* Prevent text overflow */
+    }
+
+    .services p,
+    .service-content p,
+    .service-box p {
+        font-size: 16px; /* Reduce font size for smaller screens */
+        line-height: 1.4; /* Adjust line height for better readability */
+    }
+
+    /* General adjustments */
+    .service-section.service-content {
+        overflow: auto; /* Add scrolling if content is too long */
+        word-wrap: break-word; /* Wrap long words */
+        max-width: 100%; /* Ensure max width is within the container */
+    }
+
 
     /* Make each step and testimonial take full width */
     .steps, .testimonials {
@@ -45,7 +80,7 @@
     }
 
     .step, .testimonial {
-        width: 100%;
+        width: 100% !important;
         margin: 10px 0;
     }
 
@@ -822,6 +857,7 @@ a.service{
     animation: slideInLeft 2s forwards;
 }
 
+/* Service Images */
 .spss-image {
     width: 60%; /* Reduce the width to 80% of the container */
     margin: auto; /* Center the image horizontally */
@@ -842,6 +878,14 @@ a.service{
 
 .thesisservice2-image {
     width: 40%; /* Reduce the width to 80% of the container */
+    margin: auto; /* Center the image horizontally */
+    height: auto; /* Keep the aspect ratio of the image */
+    display: block; /* Ensure the image does not have extra spacing as an inline element */
+    margin-bottom: 20px; /* Adjust this value to move the image up from the bottom */
+    border-radius: 15px; /* Apply rounded corners for consistency */
+}
+.PowerPoint-image{
+    width: 70%; /* Reduce the width to 80% of the container */
     margin: auto; /* Center the image horizontally */
     height: auto; /* Keep the aspect ratio of the image */
     display: block; /* Ensure the image does not have extra spacing as an inline element */
