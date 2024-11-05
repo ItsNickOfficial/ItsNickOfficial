@@ -12,6 +12,31 @@
         padding: 0 15px;
         margin: auto;
     }
+    .top-nav {
+        padding: 10px 15px; /* Adjust padding for better spacing */
+    }
+
+    .top-nav .container {
+        flex-direction: column; /* Stack the nav items vertically */
+        align-items: center; /* Center align the nav items */
+        padding: 0; /* Remove extra padding */
+    }
+
+    .top-nav ul {
+        flex-direction: column; /* Stack the list items vertically */
+        gap: 10px; /* Reduce the gap between items */
+    }
+
+    .top-nav ul li {
+        display: block; /* Ensure each item takes full width */
+        text-align: center; /* Center-align text */
+    }
+
+    .top-nav ul li a {
+        font-size: 0.9rem; /* Adjust font size */
+        padding: 8px 10px; /* Adjust padding for better fit */
+    }
+
 
     /* Make header content stack vertically */
     header .container {
@@ -36,21 +61,23 @@
     }
 
     .service-section.services-list {
-        max-height: 650px; /* Set this to a value that works for your layout */
-        overflow-y: auto; /* Enable vertical scrolling */
         padding: 10px;
-        word-wrap: break-word;
+        word-wrap: break-word; /* Ensure text wraps properly */
         overflow-wrap: break-word;
+        margin: auto;
     }
 
     .service-section.services-list li {
-        font-size: 0.95rem; /* Slightly smaller font size for better fit */
-        line-height: 1.4; /* Improve readability */
-        padding: 8px; /* Reduce padding for smaller screens */
-        white-space: normal; /* Allow text to wrap */
+        writing-mode: horizontal-tb; /* Ensure text runs left to right */
+        text-orientation: initial; /* Default orientation for horizontal text */
+        white-space: nowrap; /* Prevents text wrapping */
         overflow-wrap: break-word; /* Break long words */
+        word-wrap: break-word; /* Fallback for older browsers */
+        word-break: break-word; /* Prevent text overflow */
+        font-size: 0.4rem; /* Adjust font size for smaller screens */
+        padding: 8px; /* Adjust padding */
+        text-align: left; /* Aligns text to the left */
     }
-
 
     .service-section.service-content {
         width: 100%; /* Ensure content fits within container */
@@ -709,7 +736,6 @@ footer .widget ul {
     height: 700px;
     /* margin-top: 100px; */
     margin-bottom: 100px;
-  
   }
   
   .service-section.services-list {
