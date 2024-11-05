@@ -9,32 +9,31 @@
     /* Adjust general container widths */
     .container {
         width: 100%;
-        padding: 0 15px;
+        padding: 0 10px;
         margin: auto;
     }
     .top-nav {
-        padding: 10px 15px; /* Adjust padding for better spacing */
+        padding: 10px 15px; /* Reduce padding for smaller screens */
     }
 
     .top-nav .container {
-        flex-direction: column; /* Stack the nav items vertically */
-        align-items: center; /* Center align the nav items */
-        padding: 0; /* Remove extra padding */
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center the nav items */
     }
 
     .top-nav ul {
-        flex-direction: column; /* Stack the list items vertically */
-        gap: 10px; /* Reduce the gap between items */
+        flex-direction: column; /* Stack nav items vertically */
+        gap: 1px; /* Reduce gap between items */
     }
 
     .top-nav ul li {
-        display: block; /* Ensure each item takes full width */
-        text-align: center; /* Center-align text */
+        display: block; /* Each item takes full width */
+        text-align: center;
     }
 
     .top-nav ul li a {
-        font-size: 0.9rem; /* Adjust font size */
-        padding: 8px 10px; /* Adjust padding for better fit */
+        font-size: 0.9rem; /* Adjust font size for better fit */
+        padding: 8px; /* Reduce padding */
     }
 
 
@@ -59,6 +58,13 @@
         width: 100%; /* Ensure full width */
         padding: 15px; /* Adjust padding for more space */
     }
+    
+        .service-section.container {
+        display: flex;
+        flex-direction: row;
+        width: 100%; 
+        margin: auto;
+    }
 
     .service-section.services-list {
         padding: 10px;
@@ -76,7 +82,9 @@
         word-break: break-word; /* Prevent text overflow */
         font-size: 0.4rem; /* Adjust font size for smaller screens */
         padding: 8px; /* Adjust padding */
+        padding-left: 0%;
         text-align: left; /* Aligns text to the left */
+        margin-left: -50px;
     }
 
     .service-section.service-content {
