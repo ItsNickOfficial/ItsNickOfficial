@@ -59,7 +59,7 @@
         padding: 15px; /* Adjust padding for more space */
     }
     
-        .service-section.container {
+    .service-section.container {
         display: flex;
         flex-direction: row;
         width: 100%; 
@@ -67,10 +67,8 @@
     }
 
     .service-section.services-list {
-        padding: 10px;
-        word-wrap: break-word; /* Ensure text wraps properly */
-        overflow-wrap: break-word;
-        margin: auto;
+        width: 100%; /* Capture the full screen width */
+        display: block; /* Display block to stack items */
     }
 
     .service-section.services-list li {
@@ -80,7 +78,7 @@
         overflow-wrap: break-word; /* Break long words */
         word-wrap: break-word; /* Fallback for older browsers */
         word-break: break-word; /* Prevent text overflow */
-        font-size: 0.4rem; /* Adjust font size for smaller screens */
+        font-size: 1.8vw; /* Adjust font size for smaller screens */
         padding: 8px; /* Adjust padding */
         padding-left: 0%;
         text-align: left; /* Aligns text to the left */
@@ -93,11 +91,24 @@
         overflow: auto; /* Add scroll if content overflows */
         word-wrap: break-word; /* Prevent text overflow */
     }
+    .service-section.service-content p {
+        font-size: 12px !important; /* Ensure smaller font size */
+        line-height: 1.4;
+        padding: 5px; /* Add padding to prevent text cutoff */
+        box-sizing: border-box; /* Ensure padding is included within width */
+        overflow-wrap: break-word; /* Ensure long words wrap */
+        word-break: break-word; /* Allow breaking within words if needed */
+    }
+    .service-section.service-content h2 {
+        font-size: 20px;
+        text-align: center;
+    }
+
 
     .services p,
     .service-content p,
     .service-box p {
-        font-size: 16px; /* Reduce font size for smaller screens */
+        /* font-size: 16px; Reduce font size for smaller screens */
         line-height: 1.4; /* Adjust line height for better readability */
     }
 
