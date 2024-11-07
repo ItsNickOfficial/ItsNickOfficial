@@ -107,6 +107,4 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   });
 });
-
-
   // https://penacademic.net/

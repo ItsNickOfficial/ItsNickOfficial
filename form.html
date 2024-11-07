@@ -83,25 +83,17 @@
             margin-bottom: 30px;
         }
 
-        /* Adjust form on smaller screens */
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-        }
     </style>
 </head>
 
 <body>
-    <nav class="top-nav">
-        <div class="container">
-            <ul>
-                <li><a href="index.html#services">Υπηρεσίες</a></li>
-                <li><a href="form.html">Online φόρμα</a></li>
-                <li><a href="index.html#footer-contact">Επικοινωνία</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div class="top-nav" id="myTopnav">
+        <a href="index.html#header">Logo</a>
+        <a href="index.html#services">Υπηρεσίες</a>
+        <a href="form.html">Online φόρμα</a>
+        <a href="index.html#footer-contact">Επικοινωνία</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">☰</a>
+    </div>
 
     <div class="container1" style="margin-top: 80px;"> <!-- Adjust margin-top to prevent overlap -->
         <h1>Υποβολή αίτησης</h1>
@@ -187,6 +179,33 @@
         })();
     </script>
     <script src="emailService.js"></script>    
+
+<script>
+    function myFunction() {
+    var x = document.getElementById("myTopnav");
+    var body = document.body;
+
+    if (x.className === "top-nav") {
+        x.className += " responsive";
+        body.classList.add("no-scroll"); // Disable background scrolling
+    } else {
+        x.className = "top-nav";
+        body.classList.remove("no-scroll"); // Re-enable background scrolling
+    }
+}
+
+// Collapse the menu when a link is clicked
+document.addEventListener("DOMContentLoaded", function () {
+    var menuItems = document.querySelectorAll("#myTopnav a:not(.icon)");
+    menuItems.forEach(function (menuItem) {
+        menuItem.addEventListener("click", function () {
+            var x = document.getElementById("myTopnav");
+            x.className = "top-nav"; // Collapse the menu
+        });
+    });
+});
+
+</script>
 </body>
 
 </html>

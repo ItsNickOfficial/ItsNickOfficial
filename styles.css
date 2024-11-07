@@ -12,28 +12,76 @@
         padding: 0 10px;
         margin: auto;
     }
+    .top-nav a:not(:first-child) {display: none;}
+    .top-nav a.icon {
+      float: right;
+      display: block;
+    }
+  
+    /* Navigation bar */
     .top-nav {
-        padding: 10px 15px; /* Reduce padding for smaller screens */
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.8); /* Navbar background */
+        padding: 10px 15px; /* Padding inside navbar */
+        position: fixed; /* Keep it at the top of the page */
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
     }
 
-    .top-nav .container {
-        flex-direction: column; /* Stack items vertically */
-        align-items: center; /* Center the nav items */
+    /* Responsive menu */
+    .top-nav.responsive {
+        display: block; /* Show the menu as a block */
+        position: fixed; /* Keep it fixed at the top */
+        top: 0; /* Align with the top of the page */
+        left: 0; /* Align with the left of the page */
+        width: 100%; /* Full width */
+        background: rgb(24,24,40); /* Darker background when opened */
+        z-index: 1000; /* Ensure it's above other content */
+        overflow-y: auto; /* Add scrolling if content exceeds viewport height */
+        height: 100vh; /* Cover the full height of the screen */
+        padding: 15px; /* Add padding for spacing */
     }
 
-    .top-nav ul {
-        flex-direction: column; /* Stack nav items vertically */
-        gap: 1px; /* Reduce gap between items */
+    /* Navigation items */
+    .top-nav.responsive a {
+        display: block; /* Make menu items stack vertically */
+        text-align: left;
+        padding: 15px;
+        color: white; /* Text color */
+        border-bottom: none; /* Remove the bottom border */
+    }
+    body.no-scroll {
+        overflow: hidden; /* Disable scrolling */
     }
 
-    .top-nav ul li {
-        display: block; /* Each item takes full width */
-        text-align: center;
+    /* Keep the burger icon at the top-right */
+    .top-nav .icon {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 2000;
+    }
+    /* Burger button pressed state */
+    .top-nav .icon.pressed {
+        background-color: #e55d00; /* Highlight color */
+        transition: background-color 1s ease; /* Smooth fade-out transition */
     }
 
-    .top-nav ul li a {
-        font-size: 0.9rem; /* Adjust font size for better fit */
-        padding: 8px; /* Reduce padding */
+    
+    /* Add hover effect for the burger menu button */
+    .top-nav .icon:hover {
+        background-color: #e55d00; /* Slightly darker on hover */
+        color: white;
     }
 
 
@@ -163,36 +211,15 @@ body {
     z-index: 1000; /* Ensures the nav bar stays above other content */
 }
 
-.top-nav .container {
-    width: 80%;
-    margin: auto;
-    max-width: 1200px;
-    display: flex;
-    justify-content: flex-end; /* Aligns the links to the right */
-    align-items: center;
-    padding: 10px 0;
-}
 
-.top-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-}
-
-.top-nav ul li {
-    display: inline;
-}
-
-.top-nav ul li a {
+.top-nav a {
     color: white; /* White text for contrast */
     text-decoration: none;
     padding: 10px 15px;
     transition: background-color 0.3s ease;
 }
 
-.top-nav ul li a:hover {
+.top-nav a:hover {
     background-color: #ff6600; /* Highlight color on hover */
     border-radius: 5px;
 }
@@ -203,13 +230,13 @@ li {
 
 header {
     background: url('./uni.jpg') no-repeat center center/cover;
-    /* opacity: 0.5; */
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
+    padding-top: 40px; /* Add space to avoid overlap with the navigation */
 }
 
 header::before {
@@ -961,13 +988,14 @@ a.service{
 
 /* Modal Content */
 .modal-content {
-    max-width: 50%; /* Limit the width */
-    margin: 8% auto;
-    padding: 40px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(245, 245, 245, 0.95)); /* Subtle gradient */
-    border: 2px solid rgb(102, 153, 153); /* Border to match the site's colors (adjust as needed) */
-    border-radius: 15px;
-    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    padding: 20px; /* Add padding inside the modal */
+    box-sizing: border-box; /* Include padding and border in the width */
+    overflow-wrap: break-word; /* Ensure long words break */
+    word-wrap: break-word; /* Older browser support */
+    word-break: break-word; /* Prevent text from overflowing */
+    hyphens: auto; /* Enable automatic hyphenation if supported */
+    max-height: 90vh; /* Prevent modal from exceeding the viewport height */
+    overflow-y: auto; /* Enable scrolling if content is too long */
 }
 
 /* Close Button */
@@ -994,11 +1022,13 @@ a.service{
     margin-bottom: 20px; /* Spacing under the title */
 }
 
-.modal-content p {
-    font-family: 'Arial', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    color: rgb(64, 64, 64); /* Slightly lighter text for paragraphs */
+.modal-content p, 
+.modal-content a, 
+.modal-content span {
+    font-size: 1rem; /* Adjust font size for readability */
+    line-height: 1.5; /* Adjust line spacing */
+    text-align: justify; /* Optional: Align text for better readability */
+    margin: 0 0 10px; /* Add spacing between paragraphs */
 }
 
 .modal-content ol,
@@ -1014,13 +1044,6 @@ a.service{
 
 .modal-content li::before {
     content: ''; /* Remove any custom bullets */
-}
-
-.modal-content a {
-    color: rgb(102, 153, 153); /* Make links match the site's color palette */
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
 }
 
 .modal-content a:hover {
@@ -1103,4 +1126,8 @@ a.service{
     to {
         opacity: 1;
     }
+}
+
+.icon {
+    display: none; /* Default: Hide the icon */
 }

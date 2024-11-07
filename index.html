@@ -15,17 +15,18 @@
     <!-- Font Imports -->
     <!-- <link rel="stylesheet" href="https://use.typekit.net/aay8rzy.css"> -->
 </head>
-<nav class="top-nav">
-    <div class="container">
-        <ul>
-            <li><a href="#services">Υπηρεσίες</a></li>
-            <li><a href="form.html">Online φόρμα</a></li>
-            <li><a href="#footer-contact">Επικοινωνία</a></li>
-        </ul>
-    </div>
-</nav>
 
 <body>
+    <div class="top-nav" id="myTopnav">
+        <a href="#header">Logo</a>
+        <a href="#services">Υπηρεσίες</a>
+        <a href="form.html">Online φόρμα</a>
+        <a href="#footer-contact">Επικοινωνία</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+      
     <header>
         <div class="container">
             <h1>Academic Help <br>
@@ -348,7 +349,32 @@
         </div>
     </div>
     
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            var body = document.body;
+
+            if (x.className === "top-nav") {
+                x.className += " responsive";
+                body.classList.add("no-scroll"); // Disable background scrolling
+            } else {
+                x.className = "top-nav";
+                body.classList.remove("no-scroll"); // Re-enable background scrolling
+            }
+            
+        }
     
+        // Add event listeners to all menu items
+        document.addEventListener("DOMContentLoaded", function () {
+            var menuItems = document.querySelectorAll("#myTopnav a:not(.icon)"); // Select all links except the burger icon
+            menuItems.forEach(function (menuItem) {
+                menuItem.addEventListener("click", function () {
+                    var x = document.getElementById("myTopnav");
+                    x.className = "top-nav"; // Collapse the menu when an item is clicked
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
