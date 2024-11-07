@@ -371,6 +371,7 @@
                 menuItem.addEventListener("click", function () {
                     var x = document.getElementById("myTopnav");
                     x.className = "top-nav"; // Collapse the menu when an item is clicked
+                    document.body.classList.remove("no-scroll"); // Re-enable scrolling
                 });
             });
         });
