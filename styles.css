@@ -97,8 +97,11 @@
     }
 
     .cta-button {
-        width: 100%;
-        text-align: center;
+        width: 80%; /* Ensure the button takes a majority of the screen width, leaving space for padding */
+        padding: 10px; /* Reduce padding for smaller screens */
+        font-size: 1rem; /* Decrease font size for readability */
+        margin: 20px auto; /* Center the button with appropriate spacing */
+        display: block; /* Ensure it behaves as a block element */
     }
 
     /* Adjust section layout for mobile */
