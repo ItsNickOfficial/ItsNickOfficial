@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
     handleLayout();
 });
 
-// ── BURGER MENU (also called inline from HTML) ────────────────────
+// ── BURGER MENU ───────────────────────────────────────────────────
 function myFunction() {
     var x = document.getElementById('myTopnav');
     var body = document.body;
@@ -85,8 +85,14 @@ function myFunction() {
 }
 
 // ── DESKTOP PANEL SWITCHER ────────────────────────────────────────
-// Named function so removeEventListener can target the exact same reference
 function desktopClickHandler() {
+    // Swap active-service highlight
+    document.querySelectorAll('.service-section.services-list li').forEach(el => {
+        el.classList.remove('active-service');
+    });
+    this.classList.add('active-service');
+
+    // Swap visible content panel
     document.querySelectorAll('.service-section.service-content').forEach((content) => {
         content.classList.remove('active');
         content.classList.add('hidden');
@@ -102,18 +108,21 @@ function buildDesktopListeners() {
         item.addEventListener('click', desktopClickHandler);
     });
 
-    // Show first service panel by default
+    // Show first service panel + highlight first item by default
     const allContent = document.querySelectorAll('.service-section.service-content');
     allContent.forEach(c => { c.classList.remove('active'); c.classList.add('hidden'); });
     if (allContent[0]) {
         allContent[0].classList.remove('hidden');
         setTimeout(() => allContent[0].classList.add('active'), 50);
     }
+    const firstItem = document.querySelector('.service-section.services-list li');
+    if (firstItem) firstItem.classList.add('active-service');
 }
 
 function destroyDesktopListeners() {
     document.querySelectorAll('.service-section.services-list li').forEach((item) => {
         item.removeEventListener('click', desktopClickHandler);
+        item.classList.remove('active-service');
     });
 }
 
@@ -136,6 +145,7 @@ function buildMobileAccordion() {
 
             document.querySelectorAll('.service-section.services-list li').forEach(el => {
                 el.classList.remove('accordion-open');
+                el.classList.remove('active-service');
             });
             document.querySelectorAll('.mobile-accordion-content').forEach(el => {
                 el.classList.remove('open');
@@ -143,6 +153,7 @@ function buildMobileAccordion() {
 
             if (!isOpen) {
                 li.classList.add('accordion-open');
+                li.classList.add('active-service');
                 panel.classList.add('open');
             }
         });
@@ -153,6 +164,7 @@ function destroyMobileAccordion() {
     document.querySelectorAll('.mobile-accordion-content').forEach(el => el.remove());
     document.querySelectorAll('.service-section.services-list li').forEach(li => {
         li.classList.remove('accordion-open');
+        li.classList.remove('active-service');
     });
 }
 
@@ -168,7 +180,6 @@ function handleLayout() {
         destroyMobileAccordion();
         buildDesktopListeners();
     } else if (!isMobile && !accordionBuilt) {
-        // First load on desktop
         buildDesktopListeners();
     }
 }
