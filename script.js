@@ -1,25 +1,7 @@
-document.querySelectorAll('.service-section.services-list li').forEach((item) => {
-    item.addEventListener('click', function () {
-      // Hide all service contents
-      document.querySelectorAll('.service-section.service-content').forEach((content) => {
-        content.classList.remove('active');
-        content.classList.add('hidden');
-      });
-  
-      // Get the target content
-      const targetContent = document.getElementById(this.dataset.content);
-  
-      // Show the target content with animation
-      targetContent.classList.remove('hidden');
-      setTimeout(() => {
-        targetContent.classList.add('active');
-      }, 50);
-    });
-  });
+document.addEventListener('DOMContentLoaded', function () {
 
-// Add this script before the closing </body> tag in your HTML file
-document.addEventListener("DOMContentLoaded", () => {
-    const testimonials = document.querySelectorAll(".testimonial");
+    // ── TESTIMONIAL ANIMATIONS ────────────────────────────────────
+    const testimonials = document.querySelectorAll('.testimonial');
 
     function isInViewport(element) {
         const rect = element.getBoundingClientRect();
@@ -34,77 +16,166 @@ document.addEventListener("DOMContentLoaded", () => {
     function checkTestimonials() {
         testimonials.forEach((testimonial, index) => {
             if (isInViewport(testimonial)) {
-                if (index % 2 === 0) {
-                    // Apply animation for the upper testimonial (from right)
-                    testimonial.classList.add("animate-slide-in-right");
-                } else {
-                    // Apply animation for the lower testimonial (from left)
-                    testimonial.classList.add("animate-slide-in-left");
-                }
+                testimonial.classList.add(index % 2 === 0
+                    ? 'animate-slide-in-right'
+                    : 'animate-slide-in-left'
+                );
             }
         });
     }
 
-    // Check initially if any testimonials are in the viewport
     checkTestimonials();
+    window.addEventListener('scroll', checkTestimonials);
 
-    // Add scroll event listener
-    window.addEventListener("scroll", checkTestimonials);
+    // ── MODAL ─────────────────────────────────────────────────────
+    var modal = document.getElementById('supportModal');
+    var supportLink = document.getElementById('support-link');
+    var closeButton = document.querySelector('.close-button');
+    var pageContent = document.querySelector('body > :not(#supportModal)');
+
+    if (supportLink) {
+        supportLink.onclick = function (event) {
+            event.preventDefault();
+            modal.classList.add('show');
+            pageContent.classList.add('blur');
+        };
+    }
+
+    if (closeButton) {
+        closeButton.onclick = function () {
+            modal.classList.remove('show');
+            pageContent.classList.remove('blur');
+        };
+    }
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.classList.remove('show');
+            pageContent.classList.remove('blur');
+        }
+    };
+
+    // ── FAQ ───────────────────────────────────────────────────────
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        item.addEventListener('click', function () {
+            this.classList.toggle('active');
+            faqItems.forEach(otherItem => {
+                if (otherItem !== this) otherItem.classList.remove('active');
+            });
+        });
+    });
+
+    // ── INITIAL LAYOUT ────────────────────────────────────────────
+    handleLayout();
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Get the modal element
-  var modal = document.getElementById("supportModal");
+// ── BURGER MENU (also called inline from HTML) ────────────────────
+function myFunction() {
+    var x = document.getElementById('myTopnav');
+    var body = document.body;
+    if (x.className === 'top-nav') {
+        x.className += ' responsive';
+        body.classList.add('no-scroll');
+    } else {
+        x.className = 'top-nav';
+        body.classList.remove('no-scroll');
+    }
+}
 
-  // Get the button/link that opens the modal
-  var supportLink = document.getElementById("support-link");
+// ── DESKTOP PANEL SWITCHER ────────────────────────────────────────
+// Named function so removeEventListener can target the exact same reference
+function desktopClickHandler() {
+    document.querySelectorAll('.service-section.service-content').forEach((content) => {
+        content.classList.remove('active');
+        content.classList.add('hidden');
+    });
+    const targetContent = document.getElementById(this.dataset.content);
+    if (!targetContent) return;
+    targetContent.classList.remove('hidden');
+    setTimeout(() => targetContent.classList.add('active'), 50);
+}
 
-  // Get the <span> element that closes the modal
-  var closeButton = document.querySelector(".close-button");
+function buildDesktopListeners() {
+    document.querySelectorAll('.service-section.services-list li').forEach((item) => {
+        item.addEventListener('click', desktopClickHandler);
+    });
 
-  // Get the main page content to blur
-  var pageContent = document.querySelector("body > :not(#supportModal)");
+    // Show first service panel by default
+    const allContent = document.querySelectorAll('.service-section.service-content');
+    allContent.forEach(c => { c.classList.remove('active'); c.classList.add('hidden'); });
+    if (allContent[0]) {
+        allContent[0].classList.remove('hidden');
+        setTimeout(() => allContent[0].classList.add('active'), 50);
+    }
+}
 
-  // When the user clicks on the "Support" link, open the modal
-  supportLink.onclick = function (event) {
-      event.preventDefault(); // Prevent default anchor behavior
-      modal.classList.add("show");
-      pageContent.classList.add("blur");
-  }
+function destroyDesktopListeners() {
+    document.querySelectorAll('.service-section.services-list li').forEach((item) => {
+        item.removeEventListener('click', desktopClickHandler);
+    });
+}
 
-  // When the user clicks on <span> (x), close the modal
-  closeButton.onclick = function () {
-      modal.classList.remove("show");
-      pageContent.classList.remove("blur");
-  }
+// ── MOBILE ACCORDION ──────────────────────────────────────────────
+function buildMobileAccordion() {
+    const listItems = document.querySelectorAll('.service-section.services-list li');
 
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function (event) {
-      if (event.target == modal) {
-          modal.classList.remove("show");
-          pageContent.classList.remove("blur");
-      }
-  }
+    listItems.forEach(function (li) {
+        const targetId = li.getAttribute('data-content');
+        const sourceContent = document.getElementById(targetId);
+        if (!sourceContent) return;
+
+        const panel = document.createElement('div');
+        panel.classList.add('mobile-accordion-content');
+        panel.innerHTML = sourceContent.innerHTML;
+        li.parentNode.insertBefore(panel, li.nextSibling);
+
+        li.addEventListener('click', function () {
+            const isOpen = li.classList.contains('accordion-open');
+
+            document.querySelectorAll('.service-section.services-list li').forEach(el => {
+                el.classList.remove('accordion-open');
+            });
+            document.querySelectorAll('.mobile-accordion-content').forEach(el => {
+                el.classList.remove('open');
+            });
+
+            if (!isOpen) {
+                li.classList.add('accordion-open');
+                panel.classList.add('open');
+            }
+        });
+    });
+}
+
+function destroyMobileAccordion() {
+    document.querySelectorAll('.mobile-accordion-content').forEach(el => el.remove());
+    document.querySelectorAll('.service-section.services-list li').forEach(li => {
+        li.classList.remove('accordion-open');
+    });
+}
+
+// ── MASTER LAYOUT HANDLER ─────────────────────────────────────────
+function handleLayout() {
+    const isMobile = window.innerWidth <= 768;
+    const accordionBuilt = document.querySelector('.mobile-accordion-content') !== null;
+
+    if (isMobile && !accordionBuilt) {
+        destroyDesktopListeners();
+        buildMobileAccordion();
+    } else if (!isMobile && accordionBuilt) {
+        destroyMobileAccordion();
+        buildDesktopListeners();
+    } else if (!isMobile && !accordionBuilt) {
+        // First load on desktop
+        buildDesktopListeners();
+    }
+}
+
+// ── DEBOUNCED RESIZE ──────────────────────────────────────────────
+let resizeTimer;
+window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(handleLayout, 150);
 });
-
-// FAQ
-document.addEventListener('DOMContentLoaded', function () {
-  // Select all the FAQ items, not just the question
-  const faqItems = document.querySelectorAll('.faq-item');
-  
-  // Add a click event listener to each faq-item
-  faqItems.forEach(item => {
-      item.addEventListener('click', function () {
-          // Toggle the active class to show or hide the answer
-          this.classList.toggle('active');
-          
-          // Close other open FAQs (Accordion behavior)
-          faqItems.forEach(otherItem => {
-              if (otherItem !== this) {
-                  otherItem.classList.remove('active');
-              }
-          });
-      });
-  });
-});
-  // https://penacademic.net/
