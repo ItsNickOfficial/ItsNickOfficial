@@ -221,12 +221,8 @@ header h1 {
    ============================================================ */
 .services {
     background: url('./services-background.png') no-repeat center center/cover;
-    background-attachment: fixed;
     padding: 50px 0;
     position: relative;
-
-    background-color: #fff;
-    padding: 50px 0;
 }
 
 .services h1 {
