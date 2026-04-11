@@ -215,14 +215,23 @@ header h1 {
     .container { width: 100%; padding: 0 10px; margin: auto; }
 }
 
+@media (max-width: 768px) {
+    .services {
+        background: url('./services-background.jpg') no-repeat top center;
+        background-size: 100% auto;
+    }
+}
+
 
 /* ============================================================
    SERVICES SECTION — DESKTOP
    ============================================================ */
 .services {
-    background: url('./services-background.png') no-repeat center center/cover;
+    background: url('./services-background.jpg') no-repeat center center/cover;
     padding: 50px 0;
     position: relative;
+    background-size: cover;
+    background-position: center center;
 }
 
 .services h1 {
