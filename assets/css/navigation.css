@@ -10,7 +10,7 @@
 }
 
 html {
-  scroll-padding-top: 88px;
+  scroll-padding-top: 0;
 }
 
 body {
@@ -147,16 +147,12 @@ body {
     padding-top: 70px;
   }
 
-  html {
-    scroll-padding-top: 80px;
+  .site-nav__inner {
+  position: relative;
+  min-height: 70px;
+  padding: 0 18px;
+  flex-wrap: nowrap;
   }
-
-    .site-nav__inner {
-    position: relative;
-    min-height: 70px;
-    padding: 0 18px;
-    flex-wrap: nowrap;
-    }
 
   .site-nav__brand-text {
     font-size: 19px;
@@ -166,22 +162,22 @@ body {
     display: block;
   }
 
-    .site-nav__links {
-    display: none;
-    position: absolute;
-    top: calc(100% + 8px);
-    right: 18px;
-    left: auto;
-    width: min(360px, calc(100vw - 36px));
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    padding: 12px 18px 20px;
-    background: #152349;
-    border: 1px solid rgba(255,255,255,.12);
-    border-radius: 16px;
-    box-shadow: 0 20px 50px rgba(0,0,0,.25);
-    }
+  .site-nav__links {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 18px;
+  left: auto;
+  width: min(360px, calc(100vw - 36px));
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  padding: 12px 18px 20px;
+  background: #152349;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.25);
+  }
 
   .site-nav.is-open .site-nav__links {
     display: flex;

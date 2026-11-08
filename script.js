@@ -27,34 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
     checkTestimonials();
     window.addEventListener('scroll', checkTestimonials);
 
-    // ── MODAL ─────────────────────────────────────────────────────
-    var modal = document.getElementById('supportModal');
-    var supportLink = document.getElementById('support-link');
-    var closeButton = document.querySelector('.close-button');
-    var pageContent = document.querySelector('body > :not(#supportModal)');
-
-    if (supportLink) {
-        supportLink.onclick = function (event) {
-            event.preventDefault();
-            modal.classList.add('show');
-            pageContent.classList.add('blur');
-        };
-    }
-
-    if (closeButton) {
-        closeButton.onclick = function () {
-            modal.classList.remove('show');
-            pageContent.classList.remove('blur');
-        };
-    }
-
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.classList.remove('show');
-            pageContent.classList.remove('blur');
-        }
-    };
-
     // ── FAQ ───────────────────────────────────────────────────────
     const faqItems = document.querySelectorAll('.faq-item');
 
@@ -71,18 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
     handleLayout();
 });
 
-// ── BURGER MENU ───────────────────────────────────────────────────
-function myFunction() {
-    var x = document.getElementById('myTopnav');
-    var body = document.body;
-    if (x.className === 'top-nav') {
-        x.className += ' responsive';
-        body.classList.add('no-scroll');
-    } else {
-        x.className = 'top-nav';
-        body.classList.remove('no-scroll');
-    }
-}
 
 // ── DESKTOP PANEL SWITCHER ────────────────────────────────────────
 function desktopClickHandler() {

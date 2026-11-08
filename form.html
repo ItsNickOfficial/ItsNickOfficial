@@ -6,22 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Υποβάλετε την αίτησή σας</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your main CSS file -->
+    <link rel="stylesheet" href="styles.css">
+
     <link rel="icon" type="image/png" href="MainPageLogo.png" sizes="32x32">
     <link rel="canonical" href="https://academic-help.net/form.html">
 
     <style>
-        /* Body background with image */
         body {
-            background: url('cambridge.jpg') no-repeat center center fixed; /* Add your image file here */
-            background-size: cover; /* Cover the entire background */
-            font-family: Arial, sans-serif;
+            background: #F7F8FC;
+            font-family: Inter, Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-top: 0px; /* Adjust to the height of the navigation bar */
+            padding: 90px 20px 40px;
+            min-height: 100vh;
+            display: block;
         }
 
         /* Container for the form */
@@ -33,6 +30,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* A bit more shadow to distinguish from the background */
             position: relative;
+            margin: 30px auto 0;
         }
 
         /* Form elements styling */
@@ -90,19 +88,57 @@
 </head>
 
 <body>
-    <div class="top-nav" id="myTopnav">
-        <a href="index.html#header">
-            <img src="MainPageLogo.png" alt="Main Logo" class="main-logo" />
-        </a>
-        <a href="index.html#services">Υπηρεσίες</a>
-        <a href="form.html">Online φόρμα</a>
-        <a href="index.html#footer-contact">Επικοινωνία</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">☰</a>
-    </div>
 
-    <div class="container1" style="margin-top: 80px;"> <!-- Adjust margin-top to prevent overlap -->
+<!-- NEW NAVIGATION -->
+    <nav class="site-nav" aria-label="Κύρια πλοήγηση">
+    <div class="site-nav__inner">
+
+        <a class="site-nav__brand"
+        href="index.html#header"
+        aria-label="Academic Help - Αρχική">
+        <span class="site-nav__brand-text">
+            academic<span>help</span>
+        </span>
+        </a>
+
+        <button
+        class="site-nav__toggle"
+        type="button"
+        aria-label="Άνοιγμα μενού"
+        aria-expanded="false"
+        aria-controls="primary-links">
+        <span></span>
+        <span></span>
+        <span></span>
+        </button>
+
+        <div class="site-nav__links" id="primary-links">
+
+        <a href="index.html#header" class="site-nav__link">
+            Αρχική
+        </a>
+
+        <a href="index.html#services" class="site-nav__link">
+            Υπηρεσίες
+        </a>
+
+        <a href="index.html#footer-contact" class="site-nav__link">
+            Επικοινωνία
+        </a>
+
+        <a href="form.html" class="site-nav__cta"
+            aria-current="page">
+            Ζήτησε καθοδήγηση
+            <span aria-hidden="true">↗</span>
+        </a>
+
+        </div>
+    </div>
+    </nav>
+
+    <div class="container1">
         <h1>Υποβολή αίτησης</h1>
-        <form action="/submit-form" method="POST"> <!-- Change action based on your backend -->
+        <form action="/submit-form" method="POST">
             <!-- Full Name -->
             <label for="name">Ονοματεπώνυμο:</label>
             <input type="text" id="name" name="name" required>
@@ -209,32 +245,6 @@
     </script>
     <script src="emailService.js"></script>    
 
-<script>
-    function myFunction() {
-    var x = document.getElementById("myTopnav");
-    var body = document.body;
-
-    if (x.className === "top-nav") {
-        x.className += " responsive";
-        body.classList.add("no-scroll"); // Disable background scrolling
-    } else {
-        x.className = "top-nav";
-        body.classList.remove("no-scroll"); // Re-enable background scrolling
-    }
-}
-
-// Collapse the menu when a link is clicked
-document.addEventListener("DOMContentLoaded", function () {
-    var menuItems = document.querySelectorAll("#myTopnav a:not(.icon)");
-    menuItems.forEach(function (menuItem) {
-        menuItem.addEventListener("click", function () {
-            var x = document.getElementById("myTopnav");
-            x.className = "top-nav"; // Collapse the menu
-        });
-    });
-});
-
-</script>
 </body>
 
 </html>

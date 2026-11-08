@@ -171,7 +171,7 @@
 
 @media (max-width: 600px) {
   .contact-section {
-    padding: 65px 20px;
+    padding: 90px 20px 65px;
   }
 
   .contact-section__intro h2 {
@@ -198,4 +198,30 @@
 .contact-section__submit:disabled {
   opacity: .65;
   cursor: wait;
+}
+
+/* Anchor navigation offset */
+#contact {
+  scroll-margin-top: 0;
+}
+
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.contact-section__privacy {
+  margin: 14px 0 0;
+  color: #667085;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.contact-section__privacy a {
+  color: #D82970;
+  font-weight: 600;
+  text-underline-offset: 3px;
 }

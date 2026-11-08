@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     submitButton.disabled = true;
     submitButton.textContent = "Αποστολή...";
+    submitButton.setAttribute("aria-busy", "true");
     status.textContent = "";
     status.className = "contact-section__note";
     status.setAttribute("role", "status");
@@ -47,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     } finally {
       submitButton.disabled = false;
+      submitButton.removeAttribute("aria-busy");
       submitButton.innerHTML =
         'Αποστολή αιτήματος <span aria-hidden="true">↗</span>';
     }
