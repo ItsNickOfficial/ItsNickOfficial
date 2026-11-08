@@ -46,6 +46,9 @@
     <link rel="stylesheet" href="assets/css/hero.css">
     <script src="assets/js/hero.js" defer></script>
 
+    <link rel="stylesheet" href="assets/css/contact.css">
+    <script src="assets/js/contact.js" defer></script>
+
     <!-- Schema Markup -->
     <script type="application/ld+json">
     {
@@ -144,7 +147,7 @@
             Επικοινωνία
         </a>
 
-        <a href="form.html" class="site-nav__cta">
+        <a href="#contact" class="site-nav__cta">
             Πάρε προσφορά
             <span aria-hidden="true">↗</span>
         </a>
@@ -178,7 +181,7 @@
         </p>
 
         <div class="hero__actions">
-            <a href="form.html" class="hero__button hero__button--primary">
+            <a href="#contact" class="hero__button hero__button--primary">
             Ζήτησε καθοδήγηση
             <span aria-hidden="true">↗</span>
             </a>
@@ -375,6 +378,108 @@
                 <h4>- Δήμητρα Γ., Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης.</h4>
             </div>
         </div>
+    </section>
+
+    <!-- ── CONTACT SECTION ── -->
+    <section id="contact" class="contact-section">
+    <div class="contact-section__container">
+
+        <div class="contact-section__intro">
+        <span class="contact-section__eyebrow">
+            ΕΠΙΚΟΙΝΩΝΙΑ
+        </span>
+
+        <h2>
+            Η επόμενη κίνησή σου
+            <span>ξεκινά εδώ.</span>
+        </h2>
+
+        <p>
+            Περιέγραψέ μας τι χρειάζεσαι και θα
+            επικοινωνήσουμε μαζί σου για να συζητήσουμε
+            πώς μπορούμε να σε καθοδηγήσουμε.
+        </p>
+
+        <div class="contact-section__benefits">
+            <span>✓ Εξατομικευμένη καθοδήγηση</span>
+            <span>✓ Εξ ολοκλήρου online</span>
+            <span>✓ Ελλάδα &amp; Κύπρος</span>
+        </div>
+        </div>
+
+        <div class="contact-section__card">
+        <h3>Στείλε το αίτημά σου</h3>
+        <p>Συμπλήρωσε τα παρακάτω στοιχεία.</p>
+
+        <form id="quick-contact-form">
+            <input type="hidden" name="access_key" value="c6863c4a-29d5-4193-ac0b-c06f76556009">
+
+            <input type="hidden" name="subject"
+                value="Νέο αίτημα από το Academic Help">
+
+            <input type="checkbox" name="botcheck" style="display:none">
+
+            <div class="contact-section__field">
+            <label for="quick-name">Ονοματεπώνυμο *</label>
+            <input id="quick-name" name="name"
+                    type="text" autocomplete="name" required
+                    placeholder="Το ονοματεπώνυμό σου">
+            </div>
+
+            <div class="contact-section__field">
+            <label for="quick-email">Email *</label>
+            <input id="quick-email" name="email"
+                    type="email" autocomplete="email" required
+                    placeholder="example@email.com">
+            </div>
+
+            <div class="contact-section__field">
+            <label for="quick-service">Υπηρεσία *</label>
+            <select id="quick-service" name="service" required>
+                <option value="" disabled selected>
+                Επίλεξε υπηρεσία
+                </option>
+                <option value="Ακαδημαϊκή καθοδήγηση">
+                Ακαδημαϊκή καθοδήγηση
+                </option>
+                <option value="Στατιστική ανάλυση">
+                Στατιστική ανάλυση
+                </option>
+                <option value="Επιμέλεια και μορφοποίηση">
+                Επιμέλεια και μορφοποίηση
+                </option>
+                <option value="Παρουσιάσεις">
+                Παρουσιάσεις
+                </option>
+                <option value="Άλλο">Άλλο</option>
+            </select>
+            </div>
+
+            <div class="contact-section__field">
+            <label for="quick-message">Το μήνυμά σου *</label>
+            <textarea id="quick-message" name="message"
+                        rows="4" required
+                        placeholder="Πες μας λίγα λόγια για το αίτημά σου..."></textarea>
+            </div>
+            
+            <button class="contact-section__submit" type="submit">
+                Αποστολή αιτήματος
+                <span aria-hidden="true">↗</span>
+            </button>
+
+            <p id="quick-form-status"
+            class="contact-section__note"
+            role="status"
+            aria-live="polite"></p>
+        </form>
+
+        <a class="contact-section__full-link" href="form.html">
+            Θέλεις να δώσεις περισσότερες λεπτομέρειες;
+            <span>Συμπλήρωσε την αναλυτική φόρμα ↗</span>
+        </a>
+        </div>
+
+    </div>
     </section>
 
     <!-- ── FOOTER ── -->
