@@ -1,0 +1,240 @@
+
+/* =========================================
+   ACADEMIC HELP - NAVIGATION
+   ========================================= */
+
+:root {
+  --brand-navy: #0F1B3D;
+  --brand-white: #FFFFFF;
+  --brand-pink: #FF3D8B;
+}
+
+html {
+  scroll-padding-top: 88px;
+}
+
+body {
+  padding-top: 78px;
+}
+
+.site-nav,
+.site-nav * {
+  box-sizing: border-box;
+}
+
+/* NAVBAR */
+.site-nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 9999;
+  background: var(--brand-navy);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  font-family: Inter, Arial, sans-serif;
+}
+
+.site-nav__inner {
+  max-width: 1240px;
+  min-height: 78px;
+  margin: auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.site-nav a {
+  text-decoration: none;
+}
+
+/* LOGO */
+.site-nav__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: white;
+  white-space: nowrap;
+}
+
+.site-nav__brand-text {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #FFFFFF;
+}
+
+.site-nav__brand-text span {
+  font-weight: 400;
+}
+
+/* LINKS */
+.site-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+}
+
+.site-nav__link {
+  color: rgba(255,255,255,.78);
+  font-size: 14px;
+  font-weight: 600;
+  transition: color .2s;
+}
+
+.site-nav__link:hover,
+.site-nav__link:focus-visible,
+.site-nav__link.is-current {
+  color: white;
+}
+
+.site-nav__link.is-current::after {
+  content: "";
+  display: block;
+  height: 2px;
+  margin-top: 5px;
+  background: var(--brand-pink);
+}
+
+/* CTA BUTTON */
+.site-nav__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 19px;
+  border-radius: 999px;
+  background: var(--brand-pink);
+  color: var(--brand-navy);
+  font-size: 14px;
+  font-weight: 800;
+  transition: transform .2s, filter .2s;
+}
+
+.site-nav__cta:hover {
+  color: var(--brand-navy);
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
+
+/* MOBILE TOGGLE */
+.site-nav__toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255,255,255,.3);
+  background: transparent;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.site-nav__toggle span {
+  display: block;
+  height: 2px;
+  background: white;
+  margin: 5px 0;
+  border-radius: 2px;
+}
+
+.site-nav :focus-visible {
+  outline: 2px solid var(--brand-pink);
+  outline-offset: 4px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 800px) {
+  body {
+    padding-top: 70px;
+  }
+
+  html {
+    scroll-padding-top: 80px;
+  }
+
+    .site-nav__inner {
+    position: relative;
+    min-height: 70px;
+    padding: 0 18px;
+    flex-wrap: nowrap;
+    }
+
+  .site-nav__brand-text {
+    font-size: 19px;
+  }
+
+  .site-nav__toggle {
+    display: block;
+  }
+
+    .site-nav__links {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 18px;
+    left: auto;
+    width: min(360px, calc(100vw - 36px));
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 12px 18px 20px;
+    background: #152349;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.25);
+    }
+
+  .site-nav.is-open .site-nav__links {
+    display: flex;
+  }
+
+  .site-nav__link {
+    padding: 15px 4px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+
+  .site-nav__link.is-current::after {
+    display: none;
+  }
+
+  .site-nav__cta {
+    margin-top: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-nav__links {
+    top: 100%;
+    right: 0;
+    width: 100%;
+    border-radius: 0 0 16px 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-nav * {
+    transition: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-nav__links {
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 8px 20px 22px;
+    border-left: 0;
+    border-right: 0;
+    border-top: 1px solid rgba(255,255,255,.12);
+    border-radius: 0 0 18px 18px;
+    box-shadow: 0 18px 35px rgba(0,0,0,.22);
+  }
+
+  .site-nav__link {
+    padding: 14px 4px;
+  }
+
+  .site-nav__cta {
+    margin-top: 16px;
+  }
+}

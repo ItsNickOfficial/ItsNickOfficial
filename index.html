@@ -40,6 +40,12 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <link rel="stylesheet" href="assets/css/navigation.css">
+    <script src="assets/js/navigation.js" defer></script>
+
+    <link rel="stylesheet" href="assets/css/hero.css">
+    <script src="assets/js/hero.js" defer></script>
+
     <!-- Schema Markup -->
     <script type="application/ld+json">
     {
@@ -100,26 +106,114 @@
 
 <body>
 
-    <div class="top-nav" id="myTopnav">
-        <a href="#header">
-            <img src="MainPageLogo.png" alt="Main Logo" class="main-logo" />
-        </a>
-        <a href="#services">Υπηρεσίες</a>
-        <a href="form.html">Online φόρμα</a>
-        <a href="#footer-contact">Επικοινωνία</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div>
 
-    <!-- ── HERO ── -->
-    <header id="header">
-        <div class="container">
-            <h1>Academic Help</h1>
-            <p class="hero-subtitle">Εξειδικευμένη ακαδημαϊκή υποστήριξη για κάθε φοιτητή</p>
-            <p class="hero-tagline">Δίπλα σε κάθε βήμα των φοιτητών</p>
-            <a href="form.html" class="cta-button">ΣΥΜΠΛΗΡΩΣΕ ΤΗΝ ONLINE ΦΟΡΜΑ</a>
+    <!-- NEW NAVIGATION -->
+    <nav class="site-nav" aria-label="Κύρια πλοήγηση">
+    <div class="site-nav__inner">
+
+        <!-- Logo -->
+        <a class="site-nav__brand" href="#header"
+        aria-label="Academic Help - Αρχική">
+        <span class="site-nav__brand-text">
+            academic<span>help</span>
+        </span>
+        </a>
+        <!-- Mobile Menu Toggle -->
+        <button
+        class="site-nav__toggle"
+        type="button"
+        aria-label="Άνοιγμα μενού"
+        aria-expanded="false"
+        aria-controls="primary-links">
+        <span></span>
+        <span></span>
+        <span></span>
+        </button>
+
+        <!-- Navigation Links -->
+        <div class="site-nav__links" id="primary-links">
+        <a href="#header" class="site-nav__link is-current">
+            Αρχική
+        </a>
+
+        <a href="#services" class="site-nav__link">
+            Υπηρεσίες
+        </a>
+
+        <a href="#footer-contact" class="site-nav__link">
+            Επικοινωνία
+        </a>
+
+        <a href="form.html" class="site-nav__cta">
+            Πάρε προσφορά
+            <span aria-hidden="true">↗</span>
+        </a>
         </div>
+
+    </div>
+    </nav>
+
+
+    <!-- HERO SECTION -->
+    <header id="header" class="hero">
+    <div class="hero__container">
+
+        <div class="hero__content">
+
+        <div class="hero__eyebrow">
+            <span class="hero__eyebrow-dot"></span>
+            ACADEMIC & RESEARCH SUPPORT
+        </div>
+
+        <h1 class="hero__title">
+            Η έρευνά σου.
+            <span>Στο επόμενο επίπεδο.</span>
+        </h1>
+
+        <p class="hero__description">
+            Εξειδικευμένη ακαδημαϊκή καθοδήγηση,
+            στατιστική ανάλυση και υποστήριξη
+            ερευνητικών εργασιών.
+            Μεθοδικά, υπεύθυνα και εξ ολοκλήρου online.
+        </p>
+
+        <div class="hero__actions">
+            <a href="form.html" class="hero__button hero__button--primary">
+            Ζήτησε καθοδήγηση
+            <span aria-hidden="true">↗</span>
+            </a>
+
+            <a href="#services" class="hero__button hero__button--secondary">
+            Ανακάλυψε τις υπηρεσίες
+            <span aria-hidden="true">↓</span>
+            </a>
+        </div>
+
+        <p class="hero__availability">
+            Υποστήριξη φοιτητών και ερευνητών
+            σε Ελλάδα και Κύπρο
+        </p>
+
+        </div>
+
+        <div class="hero__bottom">
+        <div class="hero__feature">
+            <span class="hero__feature-icon" aria-hidden="true">01</span>
+            <span>Ακαδημαϊκή καθοδήγηση</span>
+        </div>
+
+        <div class="hero__feature">
+            <span class="hero__feature-icon" aria-hidden="true">02</span>
+            <span>Στατιστική ανάλυση</span>
+        </div>
+
+        <div class="hero__feature">
+            <span class="hero__feature-icon" aria-hidden="true">03</span>
+            <span>Ελλάδα & Κύπρος</span>
+        </div>
+        </div>
+
+    </div>
     </header>
 
     <!-- ── SERVICES ── -->
@@ -361,30 +455,6 @@
             </ol>
         </div>
     </div>
-
-    <script>
-        function myFunction() {
-            var x = document.getElementById("myTopnav");
-            var body = document.body;
-            if (x.className === "top-nav") {
-                x.className += " responsive";
-                body.classList.add("no-scroll");
-            } else {
-                x.className = "top-nav";
-                body.classList.remove("no-scroll");
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            var menuItems = document.querySelectorAll("#myTopnav a:not(.icon)");
-            menuItems.forEach(function (menuItem) {
-                menuItem.addEventListener("click", function () {
-                    var x = document.getElementById("myTopnav");
-                    x.className = "top-nav";
-                });
-            });
-        });
-    </script>
 
 </body>
 </html>
