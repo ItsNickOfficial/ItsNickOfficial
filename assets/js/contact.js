@@ -6,6 +6,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const submitButton = form.querySelector('button[type="submit"]');
   const status = document.getElementById("quick-form-status");
 
+  // Automatically select a service when clicking its card
+  const serviceSelect = document.getElementById("quick-service");
+
+  document.querySelectorAll(".service-card a").forEach((link) => {
+    link.addEventListener("click", () => {
+      const serviceName = link.closest(".service-card")
+        ?.querySelector("h3")?.textContent.trim();
+
+      if (!serviceSelect || !serviceName) return;
+
+      const matchingOption = Array.from(serviceSelect.options)
+        .find((option) => option.value === serviceName);
+
+      if (matchingOption) {
+        serviceSelect.value = serviceName;
+        serviceSelect.dispatchEvent(
+          new Event("change", { bubbles: true })
+        );
+      }
+    });
+  });
+
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
