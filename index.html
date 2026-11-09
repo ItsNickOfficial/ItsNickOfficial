@@ -266,12 +266,15 @@
 
             <div class="services-section__grid">
 
+
                 <article class="service-card">
                     <span class="service-card__number">01</span>
                     <h3>Πτυχιακή εργασία</h3>
                     <p>Καθοδήγηση, οργάνωση και επιστημονική υποστήριξη σε κάθε στάδιο.</p>
-                    <a href="#contact" aria-label="Επικοινωνία για πτυχιακή εργασία">
-                        Επίλεξε την υπηρεσία <span aria-hidden="true">↗</span>
+                    <a href="ptyxiaki-ergasia.html"
+                    aria-label="Περισσότερα για την πτυχιακή εργασία">
+                        Μάθε περισσότερα
+                        <span aria-hidden="true">↗</span>
                     </a>
                 </article>
 
@@ -723,7 +726,7 @@
             Τα στοιχεία σου χρησιμοποιούνται αποκλειστικά
             για την επικοινωνία σχετικά με το αίτημά σου.
             Δες την
-            <a href="privacy.html">Πολιτική Απορρήτου</a>.
+            <a href="privacy-policy.html">Πολιτική Απορρήτου</a>.
             </p>
         </form>
 
@@ -785,7 +788,7 @@
                 </p>
 
                 <div class="site-footer__links">
-                    <a href="privacy.html">Πολιτική Απορρήτου</a>
+                    <a href="privacy-policy.html">Πολιτική Απορρήτου</a>
 
                     <a href="https://www.instagram.com/academyhelpcenter/"
                     target="_blank"
@@ -805,7 +808,8 @@
         const serviceParam = params.get("service");
 
         const serviceMap = {
-            "statistiki-analysi": "Στατιστική ανάλυση"
+            "statistiki-analysi": "Στατιστική ανάλυση",
+            "ptyxiaki-ergasia": "Πτυχιακή εργασία"
         };
 
         const selectedService = serviceMap[serviceParam];
