@@ -1,0 +1,467 @@
+/* =========================================
+   ACADEMIC HELP - DETAILED FORM
+   All component selectors use the af- prefix.
+========================================= */
+
+/* =========================================
+   01. DESIGN TOKENS
+========================================= */
+
+:root {
+    --af-navy: #0f1b3d;
+    --af-pink: #ff3d8b;
+    --af-muted: #67718a;
+    --af-border: #e2e6ef;
+}
+
+/* =========================================
+   02. LAYOUT & HERO
+========================================= */
+
+.af-shell {
+    width: min(1160px, calc(100% - 44px));
+    margin-inline: auto;
+}
+
+.af-hero {
+    background: linear-gradient(132deg, #101d44 0%, #0a142d 100%);
+    color: #fff;
+    padding: 76px 0 72px;
+    position: relative;
+    overflow: hidden;
+}
+
+.af-hero::before {
+    content: "";
+    position: absolute;
+    width: 440px;
+    height: 440px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 61, 139, 0.15), transparent 69%);
+    right: -130px;
+    top: -170px;
+    pointer-events: none;
+}
+
+.af-eyebrow {
+    color: #ff9bc4;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: 0.15em;
+    font-size: 0.76rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.af-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--af-pink);
+    box-shadow: 0 0 0 5px rgba(255, 61, 139, 0.14);
+}
+
+.af-hero h1 {
+    font-size: clamp(2.2rem, 4.3vw, 4.2rem);
+    line-height: 1.13;
+    letter-spacing: -0.045em;
+    font-weight: 800;
+    max-width: 780px;
+    margin: 0 0 19px;
+}
+
+.af-hero h1 span,
+.af-intro h2 span {
+    color: var(--af-pink);
+}
+
+.af-hero p:not(.af-eyebrow) {
+    max-width: 700px;
+    color: #d3d9e8;
+    font-size: 1.04rem;
+    line-height: 1.8;
+}
+
+.af-hero-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 25px;
+    margin-top: 29px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #edf0f9;
+}
+
+.af-main {
+    background: #f7f8fc;
+    padding: 74px 0 95px;
+}
+
+.af-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    align-items: start;
+    gap: 62px;
+}
+
+/* =========================================
+   03. INTRO & INFORMATION CARD
+========================================= */
+
+.af-intro {
+    padding-top: 30px;
+}
+
+.af-kicker {
+    font-size: 0.77rem;
+    color: var(--af-pink);
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    margin: 0 0 14px;
+}
+
+.af-intro h2 {
+    font-size: clamp(1.9rem, 3vw, 2.9rem);
+    line-height: 1.2;
+    letter-spacing: -0.035em;
+    margin: 0 0 19px;
+    color: var(--af-navy);
+}
+
+.af-intro > p:not(.af-kicker) {
+    line-height: 1.85;
+    color: #55617a;
+}
+
+.af-note {
+    margin-top: 31px;
+    padding: 22px 24px;
+    border-radius: 14px;
+    border-left: 4px solid var(--af-pink);
+    background: #fff;
+    box-shadow: 0 10px 28px rgba(15, 27, 61, 0.045);
+}
+
+.af-note strong {
+    color: var(--af-navy);
+}
+
+.af-note p {
+    margin: 8px 0 0;
+    line-height: 1.65;
+    color: #58647b;
+    font-size: 0.93rem;
+}
+
+.af-simple {
+    margin-top: 24px !important;
+    font-size: 0.92rem;
+}
+
+.af-simple a {
+    color: #bd1e61;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* =========================================
+   04. FORM PANEL & SECTIONS
+========================================= */
+
+.af-panel {
+    min-width: 0;
+    background: #fff;
+    border: 1px solid var(--af-border);
+    border-radius: 20px;
+    padding: 36px;
+    box-shadow: 0 18px 55px rgba(15, 27, 61, 0.075);
+}
+
+.af-section {
+    border: 0;
+    padding: 0;
+    margin: 0 0 30px;
+    min-width: 0;
+}
+
+.af-section legend {
+    width: 100%;
+    padding: 0 0 16px;
+    margin: 0 0 20px;
+    border-bottom: 1px solid var(--af-border);
+    font-size: 1.04rem;
+    font-weight: 800;
+    color: var(--af-navy);
+}
+
+.af-section legend span {
+    color: var(--af-pink);
+    font-size: 0.85rem;
+    margin-right: 10px;
+}
+
+.af-grid {
+    display: grid;
+    gap: 17px;
+}
+
+.af-grid--two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* =========================================
+   05. FORM FIELDS
+========================================= */
+
+.af-field {
+    min-width: 0;
+    margin-bottom: 20px;
+}
+
+.af-grid .af-field {
+    margin-bottom: 0;
+}
+
+.af-field label {
+    display: block;
+    margin-bottom: 9px;
+    color: #263350;
+    font-weight: 700;
+    font-size: 0.87rem;
+    line-height: 1.4;
+}
+
+.af-field input,
+.af-field select,
+.af-field textarea {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    appearance: auto;
+    padding: 13px 14px;
+    border-radius: 10px;
+    border: 1px solid #dbe1eb;
+    background: #fafbfe;
+    color: var(--af-navy);
+    font: inherit;
+    font-size: 0.92rem;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.af-field textarea {
+    resize: vertical;
+    min-height: 138px;
+}
+
+.af-field input::placeholder,
+.af-field textarea::placeholder {
+    color: #8b95aa;
+}
+
+.af-field input:focus,
+.af-field select:focus,
+.af-field textarea:focus {
+    outline: 0;
+    border-color: var(--af-pink);
+    box-shadow: 0 0 0 3px rgba(255, 61, 139, 0.12);
+    background: white;
+}
+
+.af-phone {
+    display: flex;
+    gap: 11px;
+}
+
+.af-phone select {
+    flex: 0 0 112px;
+    width: 112px;
+}
+
+.af-phone input {
+    flex: 1 1 0;
+}
+
+.af-hint {
+    font-size: 0.79rem;
+    color: var(--af-muted);
+    margin: 7px 0 0;
+}
+
+.af-optional {
+    color: #8791a4;
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+/* =========================================
+   06. PRIVACY & SUBMISSION
+========================================= */
+
+.af-privacy {
+    font-size: 0.83rem;
+    line-height: 1.7;
+    color: #69738a;
+    margin: 0 0 18px;
+}
+
+.af-privacy a {
+    color: #b31d61;
+    font-weight: 700;
+    text-underline-offset: 3px;
+}
+
+.af-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 54px;
+    background: var(--af-pink);
+    color: white;
+    border: 0;
+    border-radius: 10px;
+    font: inherit;
+    font-weight: 800;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.22s, transform 0.22s, box-shadow 0.22s;
+}
+
+.af-submit:hover:not(:disabled) {
+    background: #e92d78;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(255, 61, 139, 0.23);
+}
+
+.af-submit:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
+
+.af-submit:focus-visible {
+    outline: 3px solid var(--af-navy);
+    outline-offset: 3px;
+}
+
+.af-status {
+    min-height: 24px;
+    margin: 13px 0 0;
+    line-height: 1.55;
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.af-status[data-state="success"] {
+    color: #176448;
+}
+
+.af-status[data-state="error"] {
+    color: #a82342;
+}
+
+.af-honeypot {
+    position: absolute !important;
+    left: -9999px !important;
+    opacity: 0 !important;
+}
+
+/* =========================================
+   07. STICKY INTRO - DESKTOP
+========================================= */
+
+@media (min-width: 951px) {
+    .af-intro {
+        position: sticky;
+        top: 110px;
+        align-self: start;
+    }
+}
+
+/* =========================================
+   08. TABLET
+========================================= */
+
+@media (max-width: 950px) {
+    .af-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .af-intro {
+        padding-top: 0;
+        position: static;
+    }
+
+    .af-hero {
+        padding: 63px 0;
+    }
+
+    .af-main {
+        padding: 50px 0 70px;
+    }
+}
+
+/* =========================================
+   09. MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+    .af-shell {
+        width: min(100% - 30px, 1160px);
+    }
+
+    .af-hero {
+        padding: 48px 0 55px;
+    }
+
+    .af-hero-points {
+        gap: 10px 18px;
+        font-size: 0.82rem;
+    }
+
+    .af-panel {
+        padding: 23px 18px;
+        border-radius: 16px;
+    }
+
+    .af-grid--two {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .af-grid .af-field {
+        margin-bottom: 20px;
+    }
+
+    .af-phone select {
+        flex-basis: 103px;
+        width: 103px;
+        padding-inline: 7px;
+    }
+
+    .af-intro h2 {
+        font-size: 2rem;
+    }
+}
+
+/* =========================================
+   10. REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .af-submit,
+    .af-field input,
+    .af-field select,
+    .af-field textarea {
+        transition: none !important;
+    }
+
+    .af-submit:hover {
+        transform: none;
+    }
+}

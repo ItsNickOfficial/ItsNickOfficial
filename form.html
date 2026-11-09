@@ -1,250 +1,104 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="el">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Υποβάλετε την αίτησή σας</title>
-    <link rel="stylesheet" href="styles.css">
-
-    <link rel="icon" type="image/png" href="MainPageLogo.png" sizes="32x32">
-    <link rel="canonical" href="https://academic-help.net/form.html">
-
-    <style>
-        body {
-            background: #F7F8FC;
-            font-family: Inter, Arial, sans-serif;
-            margin: 0;
-            padding: 90px 20px 40px;
-            min-height: 100vh;
-            display: block;
-        }
-
-        /* Container for the form */
-        .container1 {
-            background-color: rgba(255, 255, 255, 0.9); /* White background with slight transparency */
-            padding: 40px;
-            max-width: 600px;
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* A bit more shadow to distinguish from the background */
-            position: relative;
-            margin: 30px auto 0;
-        }
-
-        /* Form elements styling */
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            margin-bottom: 10px;
-            color: #333;
-            font-weight: bold;
-        }
-
-        input, textarea, select {
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            background-color: #F9F2EC; /* Light beige background for inputs */
-            font-size: 1rem;
-            transition: border 0.3s ease;
-        }
-
-        input:focus, textarea:focus, select:focus {
-            border-color: #8C5C4E; /* Brown border on focus */
-            outline: none;
-        }
-
-        /* Submit button styling */
-        button {
-            background-color: #8C5C4E; /* Brown color */
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 1rem;
-            text-transform: uppercase;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #734C3D; /* Darker brown on hover */
-        }
-
-        /* Heading styling */
-        h1 {
-            text-align: center;
-            color: #8C5C4E; /* Match the button color */
-            margin-bottom: 30px;
-        }
-
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Αναλυτική Φόρμα Επικοινωνίας | Academic Help</title>
+  <meta name="description" content="Περιέγραψε το ακαδημαϊκό ή ερευνητικό σου αίτημα και ζήτησε εξατομικευμένη καθοδήγηση από το Academic Help.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://academic-help.net/form.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="el_GR">
+  <meta property="og:title" content="Αναλυτική Φόρμα Επικοινωνίας | Academic Help">
+  <meta property="og:description" content="Στείλε τα στοιχεία και τις ανάγκες του αιτήματός σου για εξατομικευμένη καθοδήγηση.">
+  <meta property="og:url" content="https://academic-help.net/form.html">
+  <meta property="og:image" content="https://academic-help.net/MainPageLogo.png">
+  <link rel="icon" type="image/png" href="MainPageLogo.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="assets/css/navigation.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/pages/form.css">
+  <script src="assets/js/navigation.js" defer></script>
+  <script src="assets/js/form.js" defer></script>
 </head>
-
 <body>
-
-<!-- NEW NAVIGATION -->
-    <nav class="site-nav" aria-label="Κύρια πλοήγηση">
+  <nav class="site-nav" aria-label="Κύρια πλοήγηση">
     <div class="site-nav__inner">
+      <a class="site-nav__brand" href="index.html#header" aria-label="Academic Help - Αρχική"><span class="site-nav__brand-text">academic<span>help</span></span></a>
+      <button class="site-nav__toggle" type="button" aria-label="Άνοιγμα μενού" aria-expanded="false" aria-controls="primary-links"><span></span><span></span><span></span></button>
+      <div class="site-nav__links" id="primary-links">
+        <a class="site-nav__link" href="index.html#header">Αρχική</a>
+        <a class="site-nav__link" href="index.html#services">Υπηρεσίες</a>
+        <a class="site-nav__link" href="index.html#footer-contact">Επικοινωνία</a>
+        <a class="site-nav__cta" href="#request-form" aria-current="page">Ζήτησε καθοδήγηση <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </nav>
 
-        <a class="site-nav__brand"
-        href="index.html#header"
-        aria-label="Academic Help - Αρχική">
-        <span class="site-nav__brand-text">
-            academic<span>help</span>
-        </span>
-        </a>
+  <main>
+    <header class="af-hero">
+      <div class="af-shell">
+        <p class="af-eyebrow"><span class="af-dot" aria-hidden="true"></span> ACADEMIC &amp; RESEARCH SUPPORT</p>
+        <h1>Μίλησέ μας για <span>το αίτημά σου.</span></h1>
+        <p>Περιέγραψε τι χρειάζεσαι και θα επικοινωνήσουμε μαζί σου για να συζητήσουμε τις δυνατότητες υποστήριξης και τα επόμενα βήματα.</p>
+        <div class="af-hero-points"><span>✓ Εξατομικευμένη καθοδήγηση</span><span>✓ Online συνεργασία</span><span>✓ Ελλάδα &amp; Κύπρος</span></div>
+      </div>
+    </header>
 
-        <button
-        class="site-nav__toggle"
-        type="button"
-        aria-label="Άνοιγμα μενού"
-        aria-expanded="false"
-        aria-controls="primary-links">
-        <span></span>
-        <span></span>
-        <span></span>
-        </button>
-
-        <div class="site-nav__links" id="primary-links">
-
-        <a href="index.html#header" class="site-nav__link">
-            Αρχική
-        </a>
-
-        <a href="index.html#services" class="site-nav__link">
-            Υπηρεσίες
-        </a>
-
-        <a href="index.html#footer-contact" class="site-nav__link">
-            Επικοινωνία
-        </a>
-
-        <a href="form.html" class="site-nav__cta"
-            aria-current="page">
-            Ζήτησε καθοδήγηση
-            <span aria-hidden="true">↗</span>
-        </a>
-
+    <section class="af-main" aria-labelledby="form-title">
+      <div class="af-shell af-layout">
+        <div class="af-intro">
+          <p class="af-kicker">ΑΝΑΛΥΤΙΚΗ ΦΟΡΜΑ</p>
+          <h2 id="form-title">Ας οργανώσουμε <span>τα επόμενα βήματα.</span></h2>
+          <p>Συμπλήρωσε τα στοιχεία επικοινωνίας και λίγες πληροφορίες για την εργασία ή την παρουσίασή σου. Τα πεδία με * είναι υποχρεωτικά.</p>
+          <div class="af-note"><strong>Δεν έχεις όλες τις λεπτομέρειες;</strong><p>Μπορείς να συμπληρώσεις μόνο όσα γνωρίζεις. Θα διευκρινίσουμε τα υπόλοιπα στην επικοινωνία μας.</p></div>
+          <p class="af-simple">Προτιμάς σύντομο μήνυμα; <a href="index.html#contact">Χρησιμοποίησε τη γρήγορη φόρμα</a>.</p>
         </div>
+
+        <div class="af-panel">
+          <form id="request-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="c6863c4a-29d5-4193-ac0b-c06f76556009">
+            <input type="hidden" name="subject" value="Νέο αναλυτικό αίτημα από το Academic Help">
+            <input type="hidden" name="from_name" value="Academic Help – Αναλυτική Φόρμα">
+            <input type="checkbox" name="botcheck" class="af-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <fieldset class="af-section">
+              <legend><span>01</span> Στοιχεία επικοινωνίας</legend>
+              <div class="af-grid af-grid--two">
+                <div class="af-field"><label for="name">Ονοματεπώνυμο *</label><input type="text" id="name" name="name" placeholder="Το ονοματεπώνυμό σου" autocomplete="name" required maxlength="120"></div>
+                <div class="af-field"><label for="email">Email *</label><input type="email" id="email" name="email" placeholder="example@email.com" autocomplete="email" required maxlength="254"></div>
+              </div>
+              <div class="af-field"><label for="phone">Τηλέφωνο επικοινωνίας *</label><div class="af-phone"><select id="country-code" name="country_code" aria-label="Κωδικός χώρας"><option value="+30">🇬🇷 +30</option><option value="+357">🇨🇾 +357</option></select><input type="tel" id="phone" name="phone" inputmode="numeric" autocomplete="tel-national" placeholder="Αριθμός τηλεφώνου" required></div><p class="af-hint" id="phone-hint">10 ψηφία για Ελλάδα.</p></div>
+            </fieldset>
+
+            <fieldset class="af-section">
+              <legend><span>02</span> Πληροφορίες αιτήματος</legend>
+              <div class="af-field"><label for="service">Υπηρεσία *</label><select id="service" name="service" required><option value="" disabled selected>Επίλεξε υπηρεσία</option><option value="Πτυχιακή εργασία">Πτυχιακή εργασία</option><option value="Διπλωματική εργασία">Διπλωματική εργασία</option><option value="Εργασία εξαμήνου">Εργασία εξαμήνου</option><option value="Στατιστική ανάλυση">Στατιστική ανάλυση SPSS &amp; Jamovi</option><option value="Παρουσιάσεις PowerPoint">Παρουσιάσεις PowerPoint</option><option value="Άλλο">Άλλο</option></select></div>
+              <div class="af-field"><label for="thesis-title">Θέμα ή τίτλος *</label><input type="text" id="thesis-title" name="thesis_title" maxlength="220" required placeholder="π.χ. Ανάλυση δεδομένων ερωτηματολογίου"></div>
+              <div class="af-field"><label for="thesis-description">Περιγραφή αιτήματος *</label><textarea id="thesis-description" name="thesis_description" rows="6" maxlength="4000" required placeholder="Πες μας τι έχεις ήδη ολοκληρώσει και σε ποιο στάδιο χρειάζεσαι υποστήριξη..."></textarea></div>
+              <div class="af-grid af-grid--two">
+                <div class="af-field"><label for="word-count">Εκτιμώμενος αριθμός λέξεων <span class="af-optional">(προαιρετικό)</span></label><select id="word-count" name="word_count"><option value="Δεν έχει οριστεί" selected>Δεν έχει οριστεί / Δεν εφαρμόζεται</option><option value="500–2.000">500 – 2.000</option><option value="2.001–4.000">2.001 – 4.000</option><option value="4.001–6.000">4.001 – 6.000</option><option value="6.001–8.000">6.001 – 8.000</option><option value="8.001–10.000">8.001 – 10.000</option><option value="10.001–15.000">10.001 – 15.000</option><option value="15.001–20.000">15.001 – 20.000</option><option value="20.001–30.000">20.001 – 30.000</option><option value="Πάνω από 30.000">Πάνω από 30.000</option></select></div>
+                <div class="af-field"><label for="deadline">Επιθυμητή προθεσμία <span class="af-optional">(προαιρετικό)</span></label><input id="deadline" type="date" name="deadline"></div>
+              </div>
+            </fieldset>
+
+            <p class="af-privacy">Τα στοιχεία σου χρησιμοποιούνται για την επικοινωνία σχετικά με το αίτημά σου. Διάβασε την <a href="privacy-policy.html">Πολιτική Απορρήτου</a>.</p>
+            <button type="submit" class="af-submit" id="send-button">Αποστολή αιτήματος <span aria-hidden="true">↗</span></button>
+            <p class="af-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer-contact">
+    <div class="site-footer__container">
+      <div class="site-footer__main">
+        <div class="site-footer__brand"><a class="site-footer__logo" href="index.html#header" aria-label="Academic Help - Αρχική">academic<span>help</span></a><p>Εξειδικευμένη ακαδημαϊκή καθοδήγηση και ερευνητική υποστήριξη, εξ ολοκλήρου online.</p><span class="site-footer__location">Ελλάδα &amp; Κύπρος</span></div>
+        <div class="site-footer__contact"><h3>Επικοινωνία</h3><a href="mailto:info@academic-help.net">info@academic-help.net</a><a href="tel:+306972410370">+30 697 241 0370</a><a href="tel:+306975534088">+30 697 553 4088</a></div>
+      </div>
+      <div class="site-footer__bottom"><p>© 2026 Academic Help. All rights reserved.</p><div class="site-footer__links"><a href="privacy-policy.html">Πολιτική Απορρήτου</a><a href="https://www.instagram.com/academyhelpcenter/" target="_blank" rel="noopener noreferrer">Instagram</a></div></div>
     </div>
-    </nav>
-
-    <div class="container1">
-        <h1>Υποβολή αίτησης</h1>
-        <form action="/submit-form" method="POST">
-            <!-- Full Name -->
-            <label for="name">Ονοματεπώνυμο:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <!-- Email -->
-            <label for="email">Email επικοινωνίας:</label>
-            <input type="email" id="email" name="email" required 
-                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
-                oninvalid="this.setCustomValidity('Παρακαλώ εισάγετε μία έγκυρη διεύθυνση email (π.χ. user@example.com)')"
-                oninput="this.setCustomValidity('')" 
-                title="Εισάγετε μία έγκυρη διεύθυνση email (π.χ. user@example.com)">
-
-
-            <!-- Contact Phone -->
-            <label for="phone">Τηλέφωνο επικοινωνίας:</label>
-            <div style="display: flex; align-items: center;">
-                <select id="country-code" name="country-code" required>
-                    <option value="+30">🇬🇷 +30</option> <!-- Greece flag -->
-                    <option value="+357">🇨🇾 +357</option> <!-- Cyprus flag -->
-                </select>
-                <input type="tel" id="phone" name="phone" required maxlength="10"
-                    pattern="\d{8,10}"
-                    oninput="adjustMaxLength(this)"
-                    title="Please enter a valid phone number">
-            </div>
-
-            <script>
-                function adjustMaxLength(input) {
-                    const countryCode = document.getElementById('country-code').value;
-                    if (countryCode === '+30') {
-                        input.setAttribute('maxlength', '10'); // Max 10 digits for Greece
-                        input.setAttribute('pattern', '\\d{10}'); // Enforce exactly 10 digits for Greece
-                        input.setAttribute('title', 'Please enter a 10-digit phone number for Greece');
-                    } else if (countryCode === '+357') {
-                        input.setAttribute('maxlength', '8'); // Max 8 digits for Cyprus
-                        input.setAttribute('pattern', '\\d{8}'); // Enforce exactly 8 digits for Cyprus
-                        input.setAttribute('title', 'Please enter an 8-digit phone number for Cyprus');
-                    }
-                }
-            </script>
-
-            <!-- Service Selection -->
-            <label for="service">Επιλογή υπηρεσίας:</label>
-            <select id="service" name="service" required>
-                <option value="" disabled selected>Διαλέξτε ένα από τα παρακάτω</option>
-                <option value="Πτυχιακή εργασία">Πτυχιακή εργασία</option>
-                <option value="Διπλωματική εργασία">Διπλωματική εργασία</option>
-                <option value="Εργασία εξαμήνου">Εργασία εξαμήνου</option>
-                <option value="PowerPoint">PowerPoint</option>
-                <option value="Μετάφραση">Μετάφραση</option>
-                <option value="Ανάλυση SPSS">Ανάλυση SPSS</option>
-                <option value="Δακτυλογράφηση">Δακτυλογράφηση</option>
-            </select>
-
-            <!-- Thesis Title -->
-            <label for="thesis-title">Θέμα:</label>
-            <input type="text" id="thesis-title" name="thesis-title" required>
-            
-            <!-- Thesis Description -->
-            <label for="thesis-description">Περιγραφή:</label>
-            <textarea id="thesis-description" name="thesis-description" rows="5" required></textarea>
-            
-            <!-- Number of Words -->
-<!-- Number of Words -->
-<label for="word-count">Αριθμός λέξεων:</label>
-<select id="word-count" name="word-count" required>
-    <option value="" disabled selected>Διαλέξτε ένα από τα παρακάτω</option>
-    <option value="500-2000">500 - 2000</option>
-    <option value="2001-4000">2001 - 4000</option>
-    <option value="4001-6000">4001 - 6000</option>
-    <option value="6001-8000">6001 - 8000</option>
-    <option value="8001-10000">8001 - 10000</option>
-    <option value="10001-12000">10001 - 12000</option>
-    <option value="12001-14000">12001 - 14000</option>
-    <option value="14001-16000">14001 - 16000</option>
-    <option value="16001-18000">16001 - 18000</option>
-    <option value="18001-20000">18001 - 20000</option>
-    <option value="20001-22000">20001 - 22000</option>
-    <option value="22001-24000">22001 - 24000</option>
-    <option value="24001-26000">24001 - 26000</option>
-    <option value="26001-28000">26001 - 28000</option>
-    <option value="28001-30000">28001 - 30000</option>
-</select>
-            
-
-            <!-- Deadline -->
-            <label for="deadline">Προθεσμία:</label>
-            <input type="date" id="deadline" name="deadline" required>
-            <script>
-                // Set the minimum date for the deadline to today's date
-                const today = new Date().toISOString().split('T')[0];
-                document.getElementById('deadline').setAttribute('min', today);
-            </script>
-            
-            <!-- Submit Button -->
-            <button type="submit">Υποβολη</button>
-        </form>
-    </div>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            emailjs.init('service_znsz5ef'); // Replace 'YOUR_USER_ID' with your actual EmailJS user ID
-        })();
-    </script>
-    <script src="emailService.js"></script>    
-
+  </footer>
 </body>
-
 </html>

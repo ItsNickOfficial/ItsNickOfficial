@@ -1,0 +1,192 @@
+/* Academic Help — Privacy Policy page */
+:root {
+    --pp-navy: #0f1b3d;
+    --pp-pink: #ff3d8b;
+    --pp-ink: #263350;
+    --pp-muted: #67718a;
+}
+
+.pp-container {
+    width: min(1160px, calc(100% - 44px));
+    margin-inline: auto;
+}
+
+.pp-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 57px 0 76px;
+    color: #fff;
+    background:
+        radial-gradient(650px 380px at 92% -5%, rgba(255, 61, 139, .25), transparent 68%),
+        linear-gradient(132deg, #101d44, #0a142d);
+}
+
+.pp-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 64px;
+    font-size: .84rem;
+    color: #a9b8d3;
+}
+
+.pp-breadcrumb a {
+    color: #edf0f9;
+    text-decoration: none;
+}
+
+.pp-breadcrumb a:hover { color: #ff9bc4; }
+
+.pp-eyebrow {
+    margin: 0 0 18px;
+    color: #ff9bc4;
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+}
+
+.pp-hero h1 {
+    margin: 0 0 20px;
+    font-size: clamp(2.5rem, 5vw, 4.3rem);
+    line-height: 1.1;
+    letter-spacing: -.045em;
+}
+
+.pp-hero h1 span { color: var(--pp-pink); }
+
+.pp-hero__lead {
+    max-width: 770px;
+    color: #d3d9e8;
+    font-size: 1.05rem;
+    line-height: 1.85;
+}
+
+.pp-updated {
+    margin: 26px 0 0;
+    font-size: .85rem;
+    color: #a8b6d2;
+}
+
+.pp-main {
+    background: #f7f8fc;
+    padding: 75px 0 110px;
+}
+
+.pp-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 250px) minmax(0, 1fr);
+    align-items: start;
+    gap: 58px;
+}
+
+.pp-toc {
+    position: sticky;
+    top: 112px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 24px 20px;
+    border: 1px solid #e2e6ef;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 12px 32px rgba(15, 27, 61, .045);
+}
+
+.pp-toc__heading {
+    margin: 0 0 12px;
+    color: var(--pp-pink);
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: .11em;
+}
+
+.pp-toc a {
+    padding: 9px 10px;
+    border-radius: 8px;
+    color: #536079;
+    text-decoration: none;
+    font-size: .86rem;
+    line-height: 1.45;
+    transition: background .2s, color .2s;
+}
+
+.pp-toc a:hover,
+.pp-toc a:focus-visible {
+    background: #fff1f7;
+    color: #b52060;
+}
+
+.pp-content { min-width: 0; }
+
+.pp-block {
+    position: relative;
+    margin: 0 0 22px;
+    padding: 35px 38px 32px;
+    border: 1px solid #e2e6ef;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 12px 34px rgba(15, 27, 61, .045);
+    scroll-margin-top: 112px;
+}
+
+.pp-number {
+    display: inline-block;
+    margin: 0 0 15px;
+    color: var(--pp-pink);
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+}
+
+.pp-block h2 {
+    margin: 0 0 16px;
+    color: var(--pp-navy);
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+    line-height: 1.3;
+    letter-spacing: -.025em;
+}
+
+.pp-block p,
+.pp-block li {
+    color: #526078;
+    font-size: .97rem;
+    line-height: 1.9;
+}
+
+.pp-block p { margin: 0 0 14px; }
+.pp-block p:last-child { margin-bottom: 0; }
+.pp-block ul { margin: 0 0 18px; padding-left: 24px; }
+.pp-block li { padding-left: 3px; margin-bottom: 6px; }
+.pp-block strong { color: var(--pp-ink); }
+.pp-block a { color: #b52060; font-weight: 700; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.pp-block a:hover { color: #861648; }
+
+.pp-block--contact { border-left: 4px solid var(--pp-pink); }
+
+.pp-contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 5px;
+    font-size: 1.04rem;
+}
+
+@media (max-width: 950px) {
+    .pp-layout { grid-template-columns: 1fr; gap: 26px; }
+    .pp-toc { position: static; }
+    .pp-toc { display: none; }
+    .pp-main { padding: 50px 0 80px; }
+}
+
+@media (max-width: 600px) {
+    .pp-container { width: calc(100% - 30px); }
+    .pp-hero { padding: 37px 0 55px; }
+    .pp-breadcrumb { margin-bottom: 46px; }
+    .pp-block { padding: 27px 22px 25px; border-radius: 14px; }
+    .pp-main { padding: 30px 0 65px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pp-toc a { transition: none; }
+}
