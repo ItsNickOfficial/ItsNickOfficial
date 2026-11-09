@@ -1,15 +1,21 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://academic-help.net/</loc>
-    <lastmod>2025-04-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://academic-help.net/form.html</loc>
-    <lastmod>2025-04-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+
+    <url>
+        <loc>https://academic-help.net/</loc>
+    </url>
+
+    <url>
+        <loc>https://academic-help.net/statistiki-analysi.html</loc>
+    </url>
+
+    <url>
+        <loc>https://academic-help.net/form.html</loc>
+    </url>
+
+    <url>
+        <loc>https://academic-help.net/privacy.html</loc>
+    </url>
+
 </urlset>
