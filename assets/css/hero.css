@@ -3,19 +3,20 @@
    ACADEMIC HELP - HERO SECTION
    ========================================== */
 
+
 .hero {
-  position: relative;
-  isolation: isolate;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: auto;
-  min-height: min(780px, calc(100svh - 78px));
-  padding: 100px 28px 35px;
-  background: #0F1B3D;
-  color: #FFFFFF;
-  text-align: left;
-  overflow: hidden;
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    height: auto;
+    min-height: min(780px, calc(100svh - 78px));
+    padding: 20px 28px 35px;
+    background: #0F1B3D;
+    color: #FFFFFF;
+    text-align: left;
+    overflow: hidden;
 }
 
 /* Remove legacy header overlay */

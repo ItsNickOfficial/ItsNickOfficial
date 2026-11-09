@@ -48,16 +48,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Active section tracking
   const sections = [
-    { id: "header", href: "#header" },
-    { id: "services", href: "#services" },
-    { id: "footer-contact", href: "#footer-contact" }
+      { id: "header", href: "/" },
+      { id: "services", href: "#services" },
+      { id: "footer-contact", href: "#footer-contact" }
   ];
 
   const updateActiveLink = () => {
     const navHeight = nav.offsetHeight;
     const scrollPosition = window.scrollY + navHeight + 100;
 
-    let activeHref = "#header";
+    let activeHref = "/";
 
     sections.forEach(({ id, href }) => {
       const section = document.getElementById(id);
