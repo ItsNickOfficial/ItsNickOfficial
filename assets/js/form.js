@@ -72,7 +72,7 @@
       if (param && Object.prototype.hasOwnProperty.call(services, param)) service.value = services[param];
     } catch (error) {
       console.error('Detailed form submission failed:', error);
-      setStatus('Η αποστολή δεν ολοκληρώθηκε. Δοκίμασε ξανά ή στείλε email στο info@academic-help.net.', 'error');
+      setStatus('Η αποστολή δεν ολοκληρώθηκε. Δοκίμασε ξανά ή στείλε email στο academyhelpcenter@gmail.com.', 'error');
     } finally {
       submit.disabled = false;
       submit.innerHTML = defaultLabel;
