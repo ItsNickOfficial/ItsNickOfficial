@@ -588,3 +588,26 @@
         animation: none !important;
     }
 }
+
+/* Related services links */
+.stats-card a {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 14px;
+    color: #0F1B3D;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.stats-card a:visited {
+    color: #0F1B3D;
+}
+
+.stats-card a:hover,
+.stats-card a:focus-visible {
+    color: #FF3D8B;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}

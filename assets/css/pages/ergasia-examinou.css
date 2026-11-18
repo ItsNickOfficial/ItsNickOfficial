@@ -634,3 +634,22 @@
   background: radial-gradient(circle at 84% 18%, rgba(255,61,139,.15), transparent 38%),
               linear-gradient(135deg,#0f1b3d 0%,#142750 62%,#1b315b 100%);
 }
+
+/* Related services */
+.sp-related-extra a {
+    color: #0F1B3D;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: #FF3D8B;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+}
+
+.sp-related-extra a:visited {
+    color: #0F1B3D;
+}
+
+.sp-related-extra a:hover,
+.sp-related-extra a:focus-visible {
+    color: #FF3D8B;
+}
