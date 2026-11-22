@@ -135,3 +135,11 @@ body.knowledge-page { background:var(--kh-paper); color:var(--kh-ink); }
   .kh-topic h3 {margin-top:22px}
   .kh-topics-grid {gap:0}
 }
+
+/* Editorial section divider */
+.kh-section-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #D7CBBB;
+    margin-bottom: 32px;
+}

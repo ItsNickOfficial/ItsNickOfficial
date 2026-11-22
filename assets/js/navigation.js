@@ -46,6 +46,62 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.innerWidth > 1024) closeMenu();
   });
 
+  // ==========================================
+  // ACTIVE NAVIGATION FOR INNER PAGES
+  // ==========================================
+
+  const currentPath = window.location.pathname
+    .replace(/\.html$/, "")
+    .replace(/\/+$/, "") || "/";
+
+  const isHomePage = (
+    currentPath === "/" ||
+    currentPath === "/index"
+  );
+
+  const servicePages = new Set([
+    "/ptyxiaki-ergasia",
+    "/diplomatiki-ergasia",
+    "/ergasia-examinou",
+    "/statistiki-analysi",
+    "/parousiaseis-powerpoint"
+  ]);
+
+  const isServicePage = servicePages.has(currentPath);
+
+  const isGuidePage = (
+    currentPath === "/articles" ||
+    currentPath.startsWith("/articles/")
+  );
+
+  // Inner pages have a fixed active navigation item.
+  // Scroll tracking is only needed on the homepage.
+  if (!isHomePage) {
+    let activeHref = null;
+
+    if (isServicePage) {
+      activeHref = "/#services";
+    } else if (isGuidePage) {
+      activeHref = "/articles";
+    }
+
+    navLinks.forEach(link => {
+      const isActive = (
+        activeHref !== null &&
+        link.getAttribute("href") === activeHref
+      );
+
+      link.classList.toggle("is-current", isActive);
+
+      if (isActive) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+
+    return;
+  }
   // Active section tracking
   const sections = [
       { id: "header", href: "/" },

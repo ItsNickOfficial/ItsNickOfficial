@@ -701,3 +701,35 @@ body.reading-page {
     transition: none;
   }
 }
+
+/* ==========================================
+   RELATED SERVICE CTA BUTTON
+   ========================================== */
+
+.reading-page main .reading-next-step > a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    max-width: 100%;
+    padding: 14px 22px;
+    background-color: var(--read-navy);
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    white-space: normal;
+    transition: background-color 0.2s ease;
+}
+
+.reading-page main .reading-next-step > a:hover {
+    background-color: #263A66;
+    color: #FFFFFF;
+}
+
+.reading-page main .reading-next-step > a span {
+    margin-left: 0;
+    flex-shrink: 0;
+}
